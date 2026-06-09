@@ -110,13 +110,24 @@
 
 ## Layering Summary
 
-* pilgrimage_core: 33
+* pilgrimage_core: 17
 * food: 20
-* shopping: 11
-* hotel: 7
-* transport: 4
-* scenic: 20
+* shopping: 8
+* hotel: 6
+* transport: 0
+* scenic: 14
 * auxiliary: 19
-* featured: 24
-* hiddenByDefault: 80
+* featured: 18
+* hiddenByDefault: 66
 * default featured verified markers: 18
+
+## Data Cleanup Summary
+
+* Source of truth: docs/reference/location.md
+* Kept spots: 84
+* Removed unverified / legacy spots: 30
+* Remaining needs_review spots: 0
+* Current official spot count: 84
+* Current featured count: 18
+* Current hiddenByDefault count: 66
+* Default featured verified markers: 18
