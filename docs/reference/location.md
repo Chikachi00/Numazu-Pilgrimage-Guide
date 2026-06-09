@@ -165,3 +165,19 @@ https://www.google.com/maps/place/%E6%AC%A7%E5%85%B0%E9%99%80%E9%A6%86+%E4%B8%8B
 https://www.google.com/maps/place/THE+BLUEWATER/@35.0951046,138.8488197,16z/data=!3m1!5s0x60198f8afc125477:0x65683ec93792044a!4m10!1m3!11m2!2sX9lQrBc1IDecFniLM1jBfUrSlDUgTA!3e3!3m5!1s0x60198f8afc78d875:0xa4c4da48f91fe05b!8m2!3d35.0951046!4d138.8578319!16s%2Fg%2F1tcvbyq_?entry=ttu&g_ep=EgoyMDI2MDYwMy4xIKXMDSoASAFQAw%3D%3D
 
 https://www.google.com/maps/place/%E5%AE%89%E7%94%B0%E5%B1%8B%E6%97%85%E9%A6%86/@35.020424,138.8885608,16z/data=!3m1!5s0x6019926b1e93dbfb:0x7915967e641a131b!4m13!1m3!11m2!2sX9lQrBc1IDecFniLM1jBfUrSlDUgTA!3e3!3m8!1s0x6019926b1e3c698b:0xdf383756addb489c!5m2!4m1!1i2!8m2!3d35.020424!4d138.897573!16s%2Fg%2F11f69_jvwy?entry=ttu&g_ep=EgoyMDI2MDYwMy4xIKXMDSoASAFQAw%3D%3D
+
+https://www.google.com/maps/place/Numazu+Imperial+Villa+Memorial+Park/@35.0705168,138.8727645,15.5z/data=!3m1!5s0x60198fd3d594fc13:0xac07c6a9b87766cf!4m6!3m5!1s0x60198fd3d93fab91:0xda50eadae9dc98e0!8m2!3d35.0728682!4d138.8715424!16s%2Fg%2F11bwkyssm5?entry=ttu&g_ep=EgoyMDI2MDYwMS4wIKXMDSoASAFQAw%3D%3D
+
+https://www.google.com/maps/place/%E6%B2%BC%E6%B4%A5%E5%AF%87%E5%AF%87%E5%A5%87%E9%85%92%E5%BA%97/@35.104302,138.8620846,17.5z/data=!3m1!5s0x6019856776cc53a3:0xca8c5c4c35549676!4m9!3m8!1s0x6019856771c0633f:0xd403fd4a726fbbc6!5m2!4m1!1i2!8m2!3d35.10418!4d138.8591523!16s%2Fg%2F1tl1nhjq?entry=ttu&g_ep=EgoyMDI2MDYwMS4wIKXMDSoASAFQAw%3D%3D
+
+https://www.google.com/maps/place/Kuretakein+Puremiamu+Numazukitaguchi+Ekimae/@35.1043989,138.8600183,19z/data=!4m9!3m8!1s0x601985978d2191db:0xcfb40ca70b917ec8!5m2!4m1!1i2!8m2!3d35.1040561!4d138.8592582!16s%2Fg%2F11p56h76tm?entry=ttu&g_ep=EgoyMDI2MDYwMS4wIKXMDSoASAFQAw%3D%3D
+
+https://www.google.com/maps/place/Sanco+Inn+Numazu+Ekimae/@35.1015678,138.8599406,18.5z/data=!3m1!5s0x60198560be1bf2c5:0xa63a0f66fb182fda!4m9!3m8!1s0x60198560be4a7bb5:0xce63e48c8bc2ea4a!5m2!4m1!1i2!8m2!3d35.101028!4d138.858776!16s%2Fg%2F1tjdrcqk?entry=ttu&g_ep=EgoyMDI2MDYwMS4wIKXMDSoASAFQAw%3D%3D
+
+https://www.google.com/maps/place/LiVEMax+Numazu+Ekimae+Hotel/@35.1016464,138.8612999,18.5z/data=!4m9!3m8!1s0x60198543506dd6eb:0xfa5291ed2cd9e5bc!5m2!4m1!1i2!8m2!3d35.1020836!4d138.8619775!16s%2Fg%2F11fkds152h?entry=ttu&g_ep=EgoyMDI2MDYwMS4wIKXMDSoASAFQAw%3D%3D
+
+https://www.google.com/maps/place/Toyoko+Inn+Fujisan+Numazu-eki+Kita-guchi+No.2/@35.105239,138.8604349,18.75z/data=!4m9!3m8!1s0x6019856789c43d73:0xb0d9dda542ad41b3!5m2!4m1!1i2!8m2!3d35.1056347!4d138.8597615!16s%2Fg%2F1tcvzgrp?entry=ttu&g_ep=EgoyMDI2MDYwMS4wIKXMDSoASAFQAw%3D%3D
+
+google.com/maps/place/Toyoko+Inn+Fujisan+Numazu-eki+Kita-guchi+No.1/@35.1051137,138.8600617,18.75z/data=!4m9!3m8!1s0x60198567b3fc354f:0x69761f131580b679!5m2!4m1!1i2!8m2!3d35.1047675!4d138.8576661!16s%2Fg%2F1thq0s1j?entry=ttu&g_ep=EgoyMDI2MDYwMS4wIKXMDSoASAFQAw%3D%3D
+
+

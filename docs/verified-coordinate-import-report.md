@@ -2,10 +2,10 @@
 
 ## Summary
 
-* Total URLs in location.md: 84
-* Successfully parsed: 84
+* Total URLs in location.md: 90
+* Successfully parsed: 90
 * Matched existing spots: 5
-* Added new spots: 79
+* Added new spots: 5
 * Parse errors: 0
 
 ## Matched Existing Spots
@@ -113,15 +113,25 @@
 * pilgrimage_core: 17
 * food: 20
 * shopping: 8
-* hotel: 6
+* hotel: 10
 * transport: 0
-* scenic: 14
+* scenic: 15
 * auxiliary: 19
 * featured: 18
-* hiddenByDefault: 66
+* hiddenByDefault: 71
 * default featured verified markers: 18
 
 ## Data Cleanup Summary
+
+* Source of truth: docs/reference/location.md
+* Kept spots: 89
+* Removed unverified / legacy spots: 0
+* Remaining needs_review spots: 0
+* Current official spot count: 89
+* Current featured count: 18
+* Current hiddenByDefault count: 71
+* Default featured verified markers: 18
+
 
 * Source of truth: docs/reference/location.md
 * Kept spots: 84

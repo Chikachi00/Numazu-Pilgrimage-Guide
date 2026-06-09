@@ -12,6 +12,8 @@ interface SpotListItemProps {
 
 export function SpotListItem({ spot, state, isSelected, onSelect }: SpotListItemProps) {
   const needsCoordinateReview = spot.coordinateStatus !== "verified";
+  const regularHoliday = spot.businessHours?.regularHoliday;
+  const hasRegularHoliday = Boolean(regularHoliday && regularHoliday !== "無" && regularHoliday !== "无");
 
   return (
     <button
@@ -39,6 +41,8 @@ export function SpotListItem({ spot, state, isSelected, onSelect }: SpotListItem
           </Badge>
         ))}
         {needsCoordinateReview ? <Badge tone="amber">坐标待校对</Badge> : <Badge tone="green">坐标已校对</Badge>}
+        {spot.businessHours ? <Badge tone="blue">有营业信息</Badge> : null}
+        {hasRegularHoliday ? <Badge tone="amber">定休：{regularHoliday}</Badge> : null}
       </div>
       <div className="badge-row status-row">
         {state.visited ? <Badge tone="green">已打卡</Badge> : null}

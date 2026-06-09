@@ -2,7 +2,7 @@
 
 ## Summary
 
-* Total spots checked: 84
+* Total spots checked: 89
 * Chinese names updated: 67
 * Japanese names updated: 53
 * Original names preserved: 84

@@ -4,4 +4,4 @@ URLs from docs/reference/location.md that could not be converted into verified c
 
 | URL | Reason |
 | --- | ------ |
-| _None_ | _All Google Maps URLs contained parseable coordinates._ |
+| _None_ | _All Google Maps place URLs contained parseable coordinates._ |

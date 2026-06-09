@@ -46,6 +46,20 @@ export interface LocalizedText {
   en?: string;
 }
 
+export interface BusinessHours {
+  weekdayOpen?: string;
+  weekdayClose?: string;
+  weekendHours?: string;
+  regularHoliday?: string;
+  specialHolidayNote?: string;
+  priceNote?: string;
+  weekdayPriceYen?: number;
+  weekendPriceYen?: number;
+  businessNote?: string;
+  source?: "numazu_html" | "numazu_pdf" | "manual_reference";
+  lastCheckedAt?: string;
+}
+
 export interface Spot {
   id: string;
   name: LocalizedText;
@@ -63,6 +77,7 @@ export interface Spot {
   pilgrimageNote?: LocalizedText;
   accessNote?: LocalizedText;
   photoTip?: LocalizedText;
+  businessHours?: BusinessHours;
   address?: LocalizedText;
   recommendedDurationMinutes?: number;
   googleMapsUrl?: string;

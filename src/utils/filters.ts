@@ -56,6 +56,15 @@ function matchesSearch(spot: Spot, query: string): boolean {
     typeJapaneseLabels[spot.type],
     spot.spotLayer ? layerLabels[spot.spotLayer] : undefined,
     spot.spotLayer ? layerJapaneseLabels[spot.spotLayer] : undefined,
+    spot.businessHours?.weekdayOpen,
+    spot.businessHours?.weekdayClose,
+    spot.businessHours?.weekendHours,
+    spot.businessHours?.regularHoliday,
+    spot.businessHours?.specialHolidayNote,
+    spot.businessHours?.businessNote,
+    spot.businessHours?.priceNote,
+    spot.businessHours?.weekdayPriceYen?.toString(),
+    spot.businessHours?.weekendPriceYen?.toString(),
     ...(spot.tags ?? []),
   ];
 

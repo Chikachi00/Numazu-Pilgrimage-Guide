@@ -825,6 +825,37 @@ a {
   font-weight: 700;
 }
 
+.business-hours-box {
+  border-radius: 8px;
+  padding: 12px;
+  background: #f8fdff;
+}
+
+.business-hours-list {
+  display: grid;
+  grid-template-columns: max-content minmax(0, 1fr);
+  gap: 6px 12px;
+  margin: 0;
+}
+
+.business-hours-list dt {
+  color: var(--muted);
+  font-weight: 800;
+}
+
+.business-hours-list dd {
+  margin: 0;
+  line-height: 1.55;
+}
+
+.business-hours-box small,
+.muted-note {
+  display: block;
+  margin-top: 8px;
+  color: var(--muted);
+  line-height: 1.5;
+}
+
 .coordinate-status-box {
   border-top: 1px solid var(--line);
   padding-top: 12px;

@@ -1,5 +1,5 @@
 import { areaLabels, characterLabels, layerLabels, typeLabels } from "../../data/labels";
-import type { Spot } from "../../types/spot";
+import type { BusinessHours, Spot } from "../../types/spot";
 import type { UserSpotState } from "../../types/userState";
 import { getGoogleMapsButtonLabel, getGoogleMapsUrl } from "../../utils/googleMaps";
 import { Badge } from "../ui/Badge";
@@ -34,6 +34,96 @@ function getSubtitle(spot: Spot) {
   );
 
   return parts.join(" / ");
+}
+
+function formatWeekdayHours(hours: BusinessHours) {
+  if (hours.weekdayOpen && hours.weekdayClose) {
+    return `${hours.weekdayOpen} ～ ${hours.weekdayClose}`;
+  }
+
+  return hours.weekdayOpen || hours.weekdayClose;
+}
+
+function formatPrice(hours: BusinessHours) {
+  const priceParts = [];
+
+  if (typeof hours.weekdayPriceYen === "number") {
+    priceParts.push(`平日 ${hours.weekdayPriceYen} 円`);
+  }
+
+  if (typeof hours.weekendPriceYen === "number") {
+    priceParts.push(`土日祝 ${hours.weekendPriceYen} 円`);
+  }
+
+  if (hours.priceNote) {
+    priceParts.push(hours.priceNote);
+  }
+
+  return priceParts.join(" / ");
+}
+
+function BusinessHoursSection({ hours }: { hours?: BusinessHours }) {
+  if (!hours) {
+    return (
+      <section className="detail-section business-hours-box">
+        <h3>营业信息</h3>
+        <p className="muted-note">暂无整理营业时间，请以 Google Maps / 官方信息为准。</p>
+      </section>
+    );
+  }
+
+  const weekdayHours = formatWeekdayHours(hours);
+  const price = formatPrice(hours);
+  const sourceLabel =
+    hours.source === "numazu_pdf" ? "用户整理 PDF 参考表" : "用户整理参考表";
+
+  return (
+    <section className="detail-section business-hours-box">
+      <h3>营业信息</h3>
+      <dl className="business-hours-list">
+        {weekdayHours ? (
+          <>
+            <dt>平日</dt>
+            <dd>{weekdayHours}</dd>
+          </>
+        ) : null}
+        {hours.weekendHours ? (
+          <>
+            <dt>土日祝</dt>
+            <dd>{hours.weekendHours}</dd>
+          </>
+        ) : null}
+        {hours.regularHoliday ? (
+          <>
+            <dt>定休</dt>
+            <dd>{hours.regularHoliday}</dd>
+          </>
+        ) : null}
+        {hours.specialHolidayNote ? (
+          <>
+            <dt>特殊说明</dt>
+            <dd>{hours.specialHolidayNote}</dd>
+          </>
+        ) : null}
+        {price ? (
+          <>
+            <dt>费用</dt>
+            <dd>{price}</dd>
+          </>
+        ) : null}
+        {hours.businessNote ? (
+          <>
+            <dt>备注</dt>
+            <dd>{hours.businessNote}</dd>
+          </>
+        ) : null}
+        <dt>来源</dt>
+        <dd>{sourceLabel}</dd>
+      </dl>
+      {hours.lastCheckedAt ? <small>最后整理：{hours.lastCheckedAt}</small> : null}
+      <small>营业时间可能变化，出行前请以官方 / Google Maps 为准。</small>
+    </section>
+  );
 }
 
 export function SpotDetailPanel({
@@ -84,6 +174,8 @@ export function SpotDetailPanel({
       {spot.recommendedDurationMinutes ? (
         <div className="duration-box">推荐停留时间：约 {spot.recommendedDurationMinutes} 分钟</div>
       ) : null}
+
+      <BusinessHoursSection hours={spot.businessHours} />
 
       <section className="detail-section coordinate-status-box">
         <h3>坐标状态</h3>
