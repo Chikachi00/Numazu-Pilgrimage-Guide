@@ -11,6 +11,8 @@ interface SpotListItemProps {
 }
 
 export function SpotListItem({ spot, state, isSelected, onSelect }: SpotListItemProps) {
+  const needsCoordinateReview = spot.coordinateStatus !== "verified";
+
   return (
     <button
       className={`spot-list-item${isSelected ? " is-selected" : ""}`}
@@ -34,6 +36,7 @@ export function SpotListItem({ spot, state, isSelected, onSelect }: SpotListItem
             {characterLabels[character]}
           </Badge>
         ))}
+        {needsCoordinateReview ? <Badge tone="amber">坐标待校对</Badge> : <Badge tone="green">坐标已校对</Badge>}
       </div>
       <div className="badge-row status-row">
         {state.visited ? <Badge tone="green">已打卡</Badge> : null}

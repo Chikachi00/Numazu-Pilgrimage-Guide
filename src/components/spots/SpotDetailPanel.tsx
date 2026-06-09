@@ -1,7 +1,7 @@
 import { areaLabels, characterLabels, typeLabels } from "../../data/labels";
 import type { Spot } from "../../types/spot";
 import type { UserSpotState } from "../../types/userState";
-import { getGoogleMapsUrl } from "../../utils/googleMaps";
+import { getGoogleMapsButtonLabel, getGoogleMapsUrl } from "../../utils/googleMaps";
 import { Badge } from "../ui/Badge";
 import { Card } from "../ui/Card";
 import { EmptyState } from "../ui/EmptyState";
@@ -43,6 +43,9 @@ export function SpotDetailPanel({
     );
   }
 
+  const googleMapsUrl = getGoogleMapsUrl(spot);
+  const isCoordinateVerified = spot.coordinateStatus === "verified";
+
   return (
     <Card className="detail-panel">
       <div className="detail-header">
@@ -71,6 +74,13 @@ export function SpotDetailPanel({
         <div className="duration-box">推荐停留时间：约 {spot.recommendedDurationMinutes} 分钟</div>
       ) : null}
 
+      <section className="detail-section coordinate-status-box">
+        <h3>坐标状态</h3>
+        <p>{isCoordinateVerified ? "坐标已校对" : "坐标待校对，位置可能不准确"}</p>
+        {spot.lastVerifiedAt ? <small>最后校对：{spot.lastVerifiedAt}</small> : null}
+        {spot.verificationNote ? <small>{spot.verificationNote}</small> : null}
+      </section>
+
       {spot.tags?.length ? (
         <section className="detail-section">
           <h3>标签</h3>
@@ -85,9 +95,11 @@ export function SpotDetailPanel({
       ) : null}
 
       <div className="detail-actions">
-        <a className="button button-primary" href={getGoogleMapsUrl(spot)} target="_blank" rel="noreferrer">
-          Google Maps 导航
-        </a>
+        {googleMapsUrl ? (
+          <a className="button button-primary" href={googleMapsUrl} target="_blank" rel="noreferrer">
+            {getGoogleMapsButtonLabel(spot)}
+          </a>
+        ) : null}
         <SpotStatusButtons
           state={state}
           onToggleVisited={() => onToggleVisited(spot.id)}

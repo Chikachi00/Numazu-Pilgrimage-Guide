@@ -1,0 +1,510 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>沼津店铺查询</title>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@400;500&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --bg:#F7F5F0;--bg2:#EEEAE2;--surface:#FFFFFF;
+  --text:#1E1E1C;--text2:#6A6A66;--text3:#A8A8A4;
+  --border:#E2DED6;--border2:#C8C4BC;
+  --open:#1D9E75;--open-bg:#E1F5EE;--open-border:#9FE1CB;
+  --closed:#D85A30;--closed-bg:#FAECE7;--closed-border:#F5C4B3;
+  --maybe:#BA7517;--maybe-bg:#FAEEDA;--maybe-border:#FAC775;
+  --r:8px;--rl:12px;
+}
+body{font-family:'Noto Sans SC',sans-serif;background:var(--bg);color:var(--text);font-size:14px;line-height:1.6}
+button{cursor:pointer;font-family:inherit;font-size:14px}
+
+#topbar{background:var(--surface);border-bottom:1px solid var(--border);padding:.75rem 1.5rem;display:flex;align-items:center;justify-content:space-between}
+.site-title{font-size:15px;font-weight:500}
+
+#date-bar{background:var(--surface);border-bottom:1px solid var(--border);padding:.9rem 1.5rem;display:flex;align-items:center;gap:1.25rem;flex-wrap:wrap}
+.date-group{display:flex;align-items:center;gap:.5rem}
+#date-input{padding:.5rem .8rem;border:1px solid var(--border);border-radius:var(--r);font-size:15px;font-family:inherit;color:var(--text);background:var(--bg);cursor:pointer}
+#date-input:focus{outline:none;border-color:var(--open)}
+.today-btn{padding:.45rem .85rem;border:1px solid var(--border);border-radius:var(--r);background:var(--surface);color:var(--text2);font-size:13px}
+.today-btn:hover{background:var(--bg2)}
+#day-display{font-size:20px;font-weight:500}
+.day-pill{display:inline-block;font-size:12px;padding:3px 10px;border-radius:99px;margin-left:.4rem;vertical-align:middle;font-weight:400}
+.day-pill.we{background:var(--closed-bg);color:var(--closed)}
+.day-pill.wd{background:var(--open-bg);color:var(--open)}
+#stats{display:flex;gap:1rem;margin-left:auto;flex-wrap:wrap}
+.stat{font-size:13px;display:flex;align-items:center;gap:.35rem;color:var(--text2)}
+.dot{width:7px;height:7px;border-radius:50%;display:inline-block;flex-shrink:0}
+
+#filters{background:var(--surface);border-bottom:1px solid var(--border);padding:.65rem 1.5rem;display:flex;gap:.4rem;flex-wrap:wrap;align-items:center}
+#search{padding:.42rem .75rem;border:1px solid var(--border);border-radius:var(--r);font-size:13px;font-family:inherit;color:var(--text);background:var(--bg);min-width:180px}
+#search:focus{outline:none;border-color:var(--open)}
+.sep{width:1px;height:18px;background:var(--border);margin:0 .2rem;flex-shrink:0}
+.chip{padding:3px 10px;border:1px solid var(--border);border-radius:99px;background:var(--surface);color:var(--text2);font-size:12px;white-space:nowrap;transition:all .12s}
+.chip:hover{border-color:var(--border2);color:var(--text)}
+.chip.on{background:var(--text);color:var(--surface);border-color:var(--text)}
+
+#main{max-width:1100px;margin:0 auto;padding:1.25rem 1.5rem}
+.sec-label{font-size:12px;color:var(--text3);margin-bottom:.55rem;letter-spacing:.04em}
+.cards{display:grid;grid-template-columns:repeat(auto-fill,minmax(265px,1fr));gap:.6rem;margin-bottom:1.4rem}
+
+.card{background:var(--surface);border:1px solid var(--border);border-radius:var(--rl);padding:.9rem 1rem;transition:border-color .12s}
+.card:hover{border-color:var(--border2)}
+.card.dim{background:var(--bg);opacity:.68}
+.card.dim .cname{color:var(--text2)}
+
+.cheader{display:flex;justify-content:space-between;align-items:flex-start;gap:.5rem;margin-bottom:.45rem}
+.cname{font-size:13px;font-weight:500;line-height:1.4;flex:1}
+.sbadge{font-size:11px;padding:2px 8px;border-radius:99px;white-space:nowrap;flex-shrink:0}
+.s-open{background:var(--open-bg);color:var(--open);border:1px solid var(--open-border)}
+.s-closed{background:var(--closed-bg);color:var(--closed);border:1px solid var(--closed-border)}
+.s-maybe{background:var(--maybe-bg);color:var(--maybe);border:1px solid var(--maybe-border)}
+.s-unk{background:var(--bg2);color:var(--text3);border:1px solid var(--border)}
+
+.ctags{display:flex;gap:.3rem;flex-wrap:wrap;margin-bottom:.45rem}
+.ttag{font-size:11px;padding:2px 7px;border-radius:99px}
+.atag{font-size:11px;padding:2px 7px;border-radius:99px;background:var(--bg2);color:var(--text2)}
+
+.chours{font-size:12px;color:var(--text2);display:flex;align-items:center;gap:.3rem}
+.chours.hi{color:var(--open);font-weight:500}
+.crest{font-size:12px;color:var(--text3);margin-top:2px}
+.ptag{display:inline-block;margin-top:.35rem;font-size:11px;padding:2px 8px;border-radius:99px;background:var(--closed-bg);color:var(--closed)}
+.ftag{display:inline-block;margin-top:.35rem;font-size:11px;padding:2px 8px;border-radius:99px;background:var(--open-bg);color:var(--open)}
+.cnote{font-size:11px;color:var(--text3);margin-top:.2rem}
+
+.cname-link{color:inherit;text-decoration:none;border-bottom:1px dashed var(--border2);cursor:pointer;transition:border-color .12s,color .12s}
+.cname-link:hover{color:var(--open);border-bottom-color:var(--open)}
+.map-dot{display:inline-block;width:6px;height:6px;border-radius:50%;background:var(--open);margin-left:5px;vertical-align:middle;flex-shrink:0;position:relative;top:-1px}
+
+.empty{text-align:center;padding:3rem;color:var(--text3)}
+@media(max-width:580px){
+  #date-bar{padding:.75rem 1rem;gap:.75rem}
+  #filters{padding:.6rem 1rem}
+  #main{padding:1rem}
+  #day-display{font-size:17px}
+  #stats{margin-left:0}
+}
+</style>
+</head>
+<body>
+
+<div id="topbar">
+  <div class="site-title">沼津店铺查询</div>
+  <div style="font-size:12px;color:var(--text3)">117 家设施</div>
+</div>
+
+<div id="date-bar">
+  <div class="date-group">
+    <input id="date-input" type="date" onchange="onDateChange()">
+    <button class="today-btn" onclick="setToday()">今天</button>
+  </div>
+  <div>
+    <span id="day-display">—</span>
+    <span id="day-pill" class="day-pill"></span>
+  </div>
+  <div id="stats"></div>
+</div>
+
+<div id="filters">
+  <input id="search" type="text" placeholder="搜索名称、地区…" oninput="render()">
+  <div class="sep"></div>
+  <div id="area-row" style="display:flex;gap:.35rem;flex-wrap:wrap"></div>
+  <div class="sep"></div>
+  <div id="type-row" style="display:flex;gap:.35rem;flex-wrap:wrap"></div>
+</div>
+
+<div id="main">
+  <div id="sec-open"></div>
+  <div id="sec-closed"></div>
+</div>
+
+<script>
+// ── 数据 ──────────────────────────────────────────────────────────────────────
+const RAW=[
+[1,'ゆうだい温泉','三島','温泉','6:00','0:00',null,'無',null,null,'料金プラン次第','https://www.google.com/maps/search/?api=1&query=ゆうだい温泉+三島'],
+[2,'門池公園','愛鷹行き','公園',null,null,null,null,null,null,'','https://www.google.com/maps/search/?api=1&query=門池公園+沼津'],
+[3,'ココス 沼津IC店','愛鷹行き','餐馆','10:00','23:30','7:00~23:30',null,null,null,'','https://www.google.com/maps/search/?api=1&query=ココス+沼津IC店'],
+[4,'万葉の湯','愛鷹行き','温泉','10:00','8:00',null,'维护期间休馆',2400,1900,'','https://www.google.com/maps/search/?api=1&query=万葉の湯+沼津'],
+[5,'アスルクラロ沼津','愛鷹行き','其他',null,null,null,null,null,null,'','https://www.google.com/maps/search/?api=1&query=アスルクラロ沼津'],
+[6,'愛鷹広域公園','愛鷹行き','公園','8:30','21:00',null,null,null,null,'','https://www.google.com/maps/search/?api=1&query=愛鷹広域公園+沼津'],
+[7,'INN THE PARK','愛鷹行き','宿泊',null,null,null,null,null,null,'','https://www.google.com/maps/search/?api=1&query=INN+THE+PARK+沼津'],
+[8,'八畳石','西北','参观',null,null,null,null,null,null,'','https://www.google.com/maps/search/?api=1&query=八畳石+沼津'],
+[9,'NEOPASA駿河湾沼津（下り）','西北','商场',null,null,null,null,null,null,'','https://www.google.com/maps/search/?api=1&query=NEOPASA駿河湾沼津（下り）'],
+[10,'NEOPASA駿河湾沼津（上り）','西北','商场',null,null,null,null,null,null,'','https://www.google.com/maps/search/?api=1&query=NEOPASA駿河湾沼津（上り）'],
+[11,'沼津市明治史料館','西北','参观',null,null,null,null,null,null,'','https://www.google.com/maps/search/?api=1&query=沼津市明治史料館'],
+[12,'明治茶館','西北','Café','9:30','16:00',null,'月・火',null,null,'','https://www.google.com/maps/search/?api=1&query=明治茶館+沼津'],
+[13,'ららぽーと沼津','西北','商场','10:00','21:00',null,'不定休',null,null,'','https://www.google.com/maps/search/?api=1&query=ららぽーと沼津'],
+[14,'菓南','西北','甜点','10:00','19:00',null,'火',null,null,'','https://www.google.com/maps/search/?api=1&query=菓南+沼津'],
+[15,'天然温泉ざぶ～ん','西北','温泉','9:00','2:00',null,'無',900,800,'','https://www.google.com/maps/search/?api=1&query=天然温泉ざぶ～ん+沼津'],
+[16,'白隠さくら','西北','其他',null,null,null,null,null,null,'','https://www.google.com/maps/search/?api=1&query=白隠さくら+沼津'],
+[17,'浮島ひまわりランド','西北','公園',null,null,null,null,null,null,'','https://www.google.com/maps/search/?api=1&query=浮島ひまわりランド+沼津'],
+[18,'静铁商旅Prezio 沼津','北口','宿泊',null,null,null,null,null,null,'','https://www.google.com/maps/search/?api=1&query=静鉄ホテルプレジオ沼津'],
+[19,'プラサヴェルデ','北口','参观','9:00','22:00',null,'不定休',null,null,'月1~2回休','https://www.google.com/maps/search/?api=1&query=プラサヴェルデ+沼津'],
+[20,'BiVi沼津','北口','商场',null,null,null,null,null,null,'各店铺次第','https://www.google.com/maps/search/?api=1&query=BiVi沼津'],
+[21,'プレミアムショップ','北口','商店','11:00','19:00','~20:00','不定休',null,null,'','https://www.google.com/maps/search/?api=1&query=ラブライブ+プレミアムショップ+BiVi沼津'],
+[22,'ザ・サードプラネット','北口','商店','10:00','23:00',null,'無',null,null,'','https://www.google.com/maps/search/?api=1&query=ザ・サードプラネット+BiVi沼津'],
+[23,'シネマサンシャイン沼津','北口','其他',null,null,null,null,null,null,'上映次第','https://www.google.com/maps/search/?api=1&query=シネマサンシャイン沼津'],
+[24,'cocochee hotel','北口','宿泊',null,null,null,null,null,null,'','https://www.google.com/maps/search/?api=1&query=cocochee hotel'],
+[25,'リコー通り','北口','参观',null,null,null,null,null,null,'','https://www.google.com/maps/search/?api=1&query=リコー通り+沼津'],
+[26,'高沢公園','北口','公園',null,null,null,null,null,null,'','https://www.google.com/maps/search/?api=1&query=高沢公園+沼津'],
+[27,'桃中軒','沼津駅','餐馆','10:00','17:00',null,'無',null,null,'10:00~13:30 / 14:30~17:00','https://www.google.com/maps/search/?api=1&query=桃中軒+沼津駅'],
+[28,'ベルマートキヨスク沼津店','沼津駅','杂货','6:10','21:30','6:30~11:00','無',null,null,'','https://www.google.com/maps/search/?api=1&query=ベルマートキヨスク沼津店'],
+[29,'沼津観光案内所','沼津駅','案内所','10:00','18:00',null,'無',null,null,'','https://www.google.com/maps/search/?api=1&query=沼津観光案内所'],
+[30,'駅前SLモニュメント','沼津駅','参观',null,null,null,null,null,null,'','https://www.google.com/maps/search/?api=1&query=駅前SLモニュメント+沼津'],
+[31,'伊豆箱根バス 案内所','沼津駅','案内所','9:30','18:00','~17:00(土)','木・日・祝',null,null,'','https://www.google.com/maps/search/?api=1&query=伊豆箱根バス+沼津駅前案内所'],
+[32,'東海バス 案内所','沼津駅','案内所','8:30','16:30',null,'無',null,null,'','https://www.google.com/maps/search/?api=1&query=東海バス+沼津駅前案内所'],
+[33,'富士急シティバス 窓口','沼津駅','案内所','9:30','17:30','9:30~11:30(土)','日・祝',null,null,'第2・4土も休','https://www.google.com/maps/search/?api=1&query=富士急シティバス+沼津駅前'],
+[34,'Hotel Trend Numazu','南口','宿泊',null,null,null,null,null,null,'','https://www.google.com/maps/search/?api=1&query=ホテルトレンド沼津駅前'],
+[35,'Numazu Grand Hotel','南口','宿泊',null,null,null,null,null,null,'','https://www.google.com/maps/search/?api=1&query=沼津グランドホテル'],
+[36,'沼津ラクーン','南口','商场','11:00','18:00',null,null,null,null,'4月末~9月BBQ期间','https://www.google.com/maps/search/?api=1&query=沼津ラクーン'],
+[37,'アニメイト','南口','商店','10:00','20:00','~19:00','無',null,null,'','https://www.google.com/maps/search/?api=1&query=アニメイト+沼津'],
+[38,'ゲーマーズ','南口','商店','12:00','20:00','11:00~19:00','無',null,null,'','https://www.google.com/maps/search/?api=1&query=ゲーマーズ+沼津店'],
+[39,'中央亭','南口','餐馆','11:00','売切次第',null,'月',null,null,'其他定休日あり','https://www.google.com/maps/search/?api=1&query=中央亭+沼津'],
+[118,'スパイスマジック沼津店','南口','餐馆','11:00','21:00',null,'無',null,null,'印度菜餐馆 / 11:00~15:00 / 17:00~21:00','https://www.google.com/maps/place/Spice+magic/@35.0990301,138.8585892,18.5z/data=!3m1!5s0x601985606e65e849:0xfc1dfce1eb198a97!4m6!3m5!1s0x601985c52bc9000f:0x5e0fc4f60b69a690!8m2!3d35.0990863!4d138.859128!16s%2Fg%2F11ldwn_z3r?entry=ttu'],
+[119,'ジョリーアンジュ / Jolie Ange','北口','餐馆','10:00','19:00',null,'火',null,null,'松饼店','https://www.google.com/maps/place/Jolie+Ange/@35.105009,138.8590098,18z/data=!4m6!3m5!1s0x60198597fbfed995:0xde30cd53d0b639a8!8m2!3d35.1050698!4d138.8593512!16s%2Fg%2F11hdc34l2c?entry=ttu&g_ep=EgoyMDI2MDUwMi4wIKXMDSoASAFQAw%3D%3D'],
+[120,'Daiwa Roynet Hotel Numazu','北口','宿泊',null,null,null,null,null,null,'','https://www.google.com/maps/place/Daiwa+Roynet+Hotel+Numazu/@35.1052768,138.8607247,16.75z/data=!4m10!3m9!1s0x6019855c291492e1:0x1f002a0701aa08b9!5m3!1s2026-07-13!4m1!1i2!8m2!3d35.1041515!4d138.86158!16s%2Fg%2F11b5pj_gps?entry=ttu&g_ep=EgoyMDI2MDUwMi4wIKXMDSoASAFQAw%3D%3D'],
+[121,'Kuretakein Puremiamu Numazukitaguchi Ekimae','北口','宿泊',null,null,null,null,null,null,'含双早','https://www.google.com/maps/place/Kuretakein+Puremiamu+Numazukitaguchi+Ekimae/@35.1041314,138.8587961,19.75z/data=!4m10!3m9!1s0x601985978d2191db:0xcfb40ca70b917ec8!5m3!1s2026-07-13!4m1!1i2!8m2!3d35.1040561!4d138.8592582!16s%2Fg%2F11p56h76tm?entry=ttu&g_ep=EgoyMDI2MDUwMi4wIKXMDSoASAFQAw%3D%3D'],
+[40,'日枝神社','東部','神社',null,null,null,null,1430,null,'','https://www.google.com/maps/search/?api=1&query=日枝神社+沼津'],
+[41,'creperie cafe Ferme','東部','Café',null,null,null,null,null,null,'','https://www.google.com/maps/search/?api=1&query=creperie+cafe+Ferme+沼津'],
+[42,'弥次喜多 平町店','東部','餐馆','11:30','21:00',null,'木',null,null,'11:30~14:00 / 17:00~21:00','https://www.google.com/maps/search/?api=1&query=弥次喜多+平町店+沼津'],
+[43,'ココス 大岡店','東部','餐馆',null,null,null,null,null,null,'','https://www.google.com/maps/search/?api=1&query=ココス+大岡店+沼津'],
+[44,'柿田川公園','清水町','公園',null,null,null,null,null,null,'','https://www.google.com/maps/search/?api=1&query=柿田川公園+清水町'],
+[45,'やば珈琲店','仲見世商店街','Café','7:00','20:30',null,'無',null,null,'','https://www.google.com/maps/search/?api=1&query=やば珈琲店+沼津'],
+[46,'甘味処 どんぐり','仲見世商店街','甜点','11:00','19:00',null,'水',null,null,'','https://www.google.com/maps/search/?api=1&query=甘味処+どんぐり+沼津'],
+[47,'マルサン書店（旧址）','仲見世商店街','其他',null,null,null,null,null,null,'旧址','https://www.google.com/maps/search/?api=1&query=マルサン書店+沼津'],
+[48,'華味','仲見世商店街','餐馆','11:00','21:00',null,'火',null,null,'11:00~14:30 / 17:00~21:00','https://www.google.com/maps/search/?api=1&query=華味+沼津'],
+[49,'麻雀Café☆JanJan','仲見世商店街','Café','17:00','1:00',null,'月',350,null,'','https://www.google.com/maps/search/?api=1&query=麻雀Café☆JanJan+沼津'],
+[50,'浜忠 上土町店','あげつち商店街','餐馆','11:00','20:30',null,'日',null,null,'夜:予約のみ','https://www.google.com/maps/search/?api=1&query=浜忠+上土町店+沼津'],
+[51,'キングノーブル','あげつち商店街','商店','10:00','19:00',null,'水',null,null,'','https://www.google.com/maps/search/?api=1&query=キングノーブル+沼津'],
+[52,'マルサンホビー','あげつち商店街','商店','10:00','20:00',null,'第3木',null,null,'','https://www.google.com/maps/search/?api=1&query=マルサンホビー+沼津'],
+[53,'グランマ 本店','あげつち商店街','甜点','10:00','16:30','~18:30','水',null,null,'第3火も休','https://www.google.com/maps/search/?api=1&query=グランマ+本店+沼津'],
+[54,'Numazu River Side Hotel','あげつち商店街','宿泊','14:00','11:00',null,null,9500,null,'チェックイン14:00','https://www.google.com/maps/search/?api=1&query=沼津リバーサイドホテル'],
+[55,'つじ写真館','あげつち商店街','商店','9:30','18:30','~18:00(日)','水',null,null,'','https://www.google.com/maps/search/?api=1&query=つじ写真館+沼津'],
+[56,'布澤呉服店','あげつち商店街','商场','10:00','18:00',null,'水',null,null,'','https://www.google.com/maps/search/?api=1&query=布澤呉服店+沼津'],
+[57,'宝飾・時計 市川','あげつち商店街','商场','10:00','18:30','~18:00(日祝)','水',null,null,'','https://www.google.com/maps/search/?api=1&query=宝飾・時計+市川+沼津'],
+[58,'だいこくや（仮店舗）','沼津','杂货','10:00','19:00',null,'水',null,null,'','https://www.google.com/maps/search/?api=1&query=だいこくや+沼津'],
+[59,'天春','沼津','餐馆','11:00','20:30',null,'月',null,null,'11:00~14:30 / 17:00~20:30','https://www.google.com/maps/search/?api=1&query=天春+沼津'],
+[60,'THE BLUE WATER','沼津','甜点','11:00','22:00',null,'火',null,null,'','https://www.google.com/maps/search/?api=1&query=THE+BLUE+WATER+沼津'],
+[61,'冨久家 沼津ケーキ店','沼津','甜点','10:00','17:00',null,'日',null,null,'','https://www.google.com/maps/search/?api=1&query=冨久家+沼津ケーキ店'],
+[62,'欧蘭陀館 下河原店','沼津','餐馆','9:00','21:00','10:00~(日)','月',null,null,'','https://www.google.com/maps/search/?api=1&query=欧蘭陀館+下河原店+沼津'],
+[63,'千本浜海岸・千本松原','沼津','海辺','6:00','21:00',null,null,null,null,'','https://www.google.com/maps/search/?api=1&query=千本浜海岸+沼津'],
+[64,'千本浜公園','沼津','公園',null,null,null,null,null,null,'','https://www.google.com/maps/search/?api=1&query=千本浜公園+沼津'],
+[65,'中央公園','沼津','公園',null,null,null,null,null,null,'','https://www.google.com/maps/search/?api=1&query=中央公園+沼津'],
+[66,'桃屋','沼津','餐馆','9:15','売切次第',null,'水',null,null,'祝日は翌日休','https://www.google.com/maps/search/?api=1&query=桃屋+沼津'],
+[67,'ドールハウスKIMURA','沼津','商店','10:00','18:00',null,'水・木',null,null,'','https://www.google.com/maps/search/?api=1&query=ドールハウスKIMURA+沼津'],
+[68,'松浦酒店','沼津','商店','10:00','19:00',null,'水',null,null,'','https://www.google.com/maps/search/?api=1&query=松浦酒店+沼津'],
+[69,'深海水族館','沼津港','参观','10:00','18:00',null,'無',null,null,'定期維修休館あり','https://www.google.com/maps/search/?api=1&query=沼津港深海水族館'],
+[70,'沼津バーガー','沼津港','餐馆','9:00','17:30','~18:30','無',null,null,'','https://www.google.com/maps/search/?api=1&query=沼津バーガー'],
+[71,'しーらかんすCafé','沼津港','Café','11:00','16:00','~17:00','火',null,null,'祝日営業','https://www.google.com/maps/search/?api=1&query=しーらかんすCafé+沼津港'],
+[72,'魚河岸丸天','沼津港','餐馆','10:00','21:00',null,'木',null,null,'祝日は水曜休','https://www.google.com/maps/search/?api=1&query=魚河岸丸天+沼津港'],
+[73,'沼津深海プリン工房','沼津港','甜点','10:00','17:30',null,'無',null,null,'','https://www.google.com/maps/search/?api=1&query=沼津深海プリン工房'],
+[74,'沼津みなと新鮮館','沼津港','商场','9:00','16:00',null,'第4火',null,null,'','https://www.google.com/maps/search/?api=1&query=沼津みなと新鮮館'],
+[75,'港口公園','沼津港','公園','7:00','18:00',null,null,null,null,'','https://www.google.com/maps/search/?api=1&query=港口公園+沼津港'],
+[76,'沼津魚市場INO','沼津港','商场',null,null,null,'土',null,null,'各店铺次第','https://www.google.com/maps/search/?api=1&query=沼津魚市場INO'],
+[77,'びゅうお','沼津港','参观','10:00','20:00','~14:00(木)','無',100,null,'临时休馆あり','https://www.google.com/maps/search/?api=1&query=びゅうお+沼津'],
+[78,'香貫山香陵台','狮香(内陆)','公園',null,null,null,null,null,null,'','https://www.google.com/maps/search/?api=1&query=香貫山香陵台+沼津'],
+[79,'ＪＡふじ伊豆 本店','狮香(内陆)','杂货','9:00','16:00',null,'土・日・祝',null,null,'','https://www.google.com/maps/search/?api=1&query=ＪＡふじ伊豆+本店+沼津'],
+[80,'JET KITCHEN','狮香(内陆)','餐馆','11:00','21:00',null,'木',null,null,'11:00~15:00 / 17:30~21:00','https://www.google.com/maps/search/?api=1&query=JET+KITCHEN+沼津'],
+[81,'ジャンボエンチョー沼津店','狮香(内陆)','商店','9:30','19:00',null,'不定休',null,null,'','https://www.google.com/maps/search/?api=1&query=ジャンボエンチョー沼津店'],
+[82,'CBカレーキッチン','狮香(内陆)','餐馆','11:00','19:30',null,'木',null,null,'','https://www.google.com/maps/search/?api=1&query=CBカレーキッチン+沼津'],
+[83,'印度屋キッチン','狮香(内陆)','餐馆','11:00','22:00',null,'無',null,null,'11:00~15:00 / 17:00~22:00','https://www.google.com/maps/search/?api=1&query=印度屋キッチン+沼津'],
+[84,'芹沢光治良記念館','狮香(沿海)','参观','9:00','16:30',null,'月',100,null,'祝日翌日休','https://www.google.com/maps/search/?api=1&query=芹沢光治良記念館+沼津'],
+[85,'沼津市文化財収蔵庫','狮香(沿海)','参观',null,null,null,null,null,null,'','https://www.google.com/maps/search/?api=1&query=沼津市文化財収蔵庫'],
+[86,'牛臥山公園','狮香(沿海)','公園','9:00',null,null,'無',0,null,'免费','https://www.google.com/maps/search/?api=1&query=牛臥山公園+沼津'],
+[87,'雅心苑 リヴァージュ','狮香(沿海)','甜点','10:00','18:00',null,'無',null,null,'','https://www.google.com/maps/search/?api=1&query=雅心苑+リヴァージュ+沼津'],
+[88,'沼津御用邸記念公園','狮香(沿海)','公園','9:30','16:30',null,null,410,null,'','https://www.google.com/maps/search/?api=1&query=沼津御用邸記念公園'],
+[89,'沼津市歴史民俗資料館','狮香(沿海)','参观','9:00','16:00',null,'月',null,null,'','https://www.google.com/maps/search/?api=1&query=沼津市歴史民俗資料館'],
+[90,'島郷海岸','狮香(沿海)','海辺',null,null,null,null,null,null,'','https://www.google.com/maps/search/?api=1&query=島郷海岸+沼津'],
+[91,'沼津市文化財センター','狮香(沿海)','参观','9:00','17:00',null,'日',null,null,'','https://www.google.com/maps/search/?api=1&query=沼津市文化財センター'],
+[92,'グランマ シーサイド店','狮香(沿海)','甜点','10:00','17:00',null,'火',null,null,'第3水も休','https://www.google.com/maps/search/?api=1&query=グランマ+シーサイド店+沼津'],
+[93,'翠泉閣','香貫','温泉','15:00','19:30',null,null,1000,1300,'','https://www.google.com/maps/search/?api=1&query=翠泉閣+沼津'],
+[94,'いけすや','内浦','餐馆','11:00','14:30',null,'水・木',null,null,'','https://www.google.com/maps/search/?api=1&query=いけすや+内浦+沼津'],
+[95,'辻宗商店','内浦','杂货','8:00','18:00',null,'火',null,null,'','https://www.google.com/maps/search/?api=1&query=辻宗商店+内浦+沼津'],
+[96,'おさかな食堂やまや','内浦','餐馆','11:30','19:00',null,'火・水',null,null,'11:30~15:00 / 17:00~19:00','https://www.google.com/maps/search/?api=1&query=おさかな食堂やまや+内浦+沼津'],
+[97,'とさわや','内浦','餐馆','11:00','18:30',null,'無',null,null,'','https://www.google.com/maps/search/?api=1&query=とさわや+内浦+沼津'],
+[98,'松月','内浦','甜点','10:00','17:00',null,'火',null,null,'水曜不定休','https://www.google.com/maps/search/?api=1&query=松月+内浦+沼津'],
+[99,'千鳥海館','内浦','参观','10:30','16:00',null,'荒天時',1100,null,'','https://www.google.com/maps/search/?api=1&query=千鳥海館+内浦+沼津'],
+[100,'浜の家','内浦','宿泊','14:00','10:00',null,null,12000,null,'チェックイン14:00','https://www.google.com/maps/search/?api=1&query=浜の家+内浦+沼津'],
+[101,'安田屋旅馆','内浦','宿泊','14:00','10:00',null,null,null,null,'日帰温泉¥1000(12~14/18~20)','https://www.google.com/maps/search/?api=1&query=安田屋旅館+内浦+沼津'],
+[102,'松涛館','内浦','宿泊','10:30',null,null,null,30800,null,'','https://www.google.com/maps/search/?api=1&query=松涛館+内浦+沼津'],
+[103,'伊豆三津水族館','内浦','参观','9:00','17:00',null,'不定休',2400,null,'','https://www.google.com/maps/search/?api=1&query=伊豆三津水族館'],
+[104,'てんてん','内浦','餐馆','11:00','15:00',null,'月~金',null,null,'週末のみ営業','https://www.google.com/maps/search/?api=1&query=てんてん+内浦+沼津'],
+[105,'三の浦総合案内所','内浦','案内所','9:00','17:00',null,'無',null,null,'','https://www.google.com/maps/search/?api=1&query=三の浦総合案内所+沼津'],
+[106,'OH!MOS','内浦','杂货','8:30','16:30',null,'無',null,null,'','https://www.google.com/maps/search/?api=1&query=OH!MOS+内浦+沼津'],
+[107,'マルカオレンヂセンター','内浦','杂货','8:00','16:00',null,'無',null,null,'','https://www.google.com/maps/search/?api=1&query=マルカオレンヂセンター+沼津'],
+[108,'海のステージ','内浦','餐馆','10:00','17:00',null,'木',null,null,'','https://www.google.com/maps/search/?api=1&query=海のステージ+内浦+沼津'],
+[109,'らららサンビーチ','西浦','海辺','8:30','17:00',null,'無',null,null,'11~3月は16:00まで','https://www.google.com/maps/search/?api=1&query=らららサンビーチ+沼津'],
+[110,'駿陽荘 やま弥','西浦','餐馆','11:30','14:00',null,'水',null,null,'第1・3火も休','https://www.google.com/maps/search/?api=1&query=駿陽荘+やま弥+沼津'],
+[111,'Awashima Hotel（淡岛酒店）','淡岛','宿泊','11:00','17:00',null,null,null,null,'','https://www.google.com/maps/search/?api=1&query=淡島ホテル+沼津'],
+[112,'あわしまマリンパーク','淡岛','参观','9:20','17:00',null,'無',3000,null,'','https://www.google.com/maps/search/?api=1&query=あわしまマリンパーク+沼津'],
+[113,'淡岛水族馆(11~2月)','淡岛','参观','9:50','16:30',null,'無',3000,null,'11~2月限定','https://www.google.com/maps/search/?api=1&query=淡島水族館+沼津'],
+[114,'韮山反射炉','伊豆長岡','参观','9:00','17:00',null,'第3水',500,null,'','https://www.google.com/maps/search/?api=1&query=韮山反射炉'],
+[115,'ニュー八景園','伊豆長岡','温泉','11:00','0:00',null,'無',2200,1650,'','https://www.google.com/maps/search/?api=1&query=ニュー八景園+伊豆長岡'],
+[116,'びっくりドンキー','秋葉原','餐馆','11:00','21:00',null,'無',null,null,'平均消費¥1340','https://www.google.com/maps/search/?api=1&query=びっくりドンキー+秋葉原'],
+[117,'ときわや','户田','餐馆','6:00','19:30',null,null,800,null,'6:00~9:30 / 13:00~19:30','https://www.google.com/maps/search/?api=1&query=ときわや+戸田+沼津'],
+];
+const FS=RAW.map(r=>({id:r[0],name:r[1],area:r[2],type:r[3],open:r[4],close:r[5],wkH:r[6],cd:r[7],price:r[8],wkPrice:r[9],note:r[10],map:r[11]||null}));
+
+// ── 星期判断 ──────────────────────────────────────────────────────────────────
+const JPDAYS=['日','月','火','水','木','金','土'];
+const ZHDAYS=['周日','周一','周二','周三','周四','周五','周六'];
+
+function status(f,date){
+  if(!date) return 'unk';
+  const cd=f.cd;
+  if(!f.open&&!cd) return 'unk';
+  if(!cd||cd==='無') return 'open';
+  if(/不定休|荒天|维护|維護/.test(cd)) return 'maybe';
+  const dow=date.getDay();
+  const dc=JPDAYS[dow];
+  // 第N曜 pattern
+  let s=cd;
+  const re=/(?:第)?(\d)(?:[・,](\d))?([月火水木金土日])曜?/g;
+  let m;
+  while((m=re.exec(cd))!==null){
+    if(m[3]===dc){
+      const nth=Math.ceil(date.getDate()/7);
+      if(nth===+m[1]||(m[2]&&nth===+m[2])) return 'closed';
+    }
+    s=s.replace(m[0],'');
+  }
+  // 范围 月~金
+  const rm=s.match(/([月火水木金土日])~([月火水木金土日])/);
+  if(rm){
+    const a=JPDAYS.indexOf(rm[1]),b=JPDAYS.indexOf(rm[2]);
+    const hit=a<=b?(dow>=a&&dow<=b):(dow>=a||dow<=b);
+    if(hit) return 'closed';
+    s=s.replace(rm[0],'');
+  }
+  if(s.includes(dc)) return 'closed';
+  return 'open';
+}
+
+// 定休日日文→中文
+function cdZh(cd){
+  if(!cd||cd==='無') return '';
+  let s=cd;
+  s=s.replace(/(?:第)?(\d)(?:[・,](\d))?([月火水木金土日])曜?/g,(_,n1,n2,d)=>{
+    const zh={月:'周一',火:'周二',水:'周三',木:'周四',金:'周五',土:'周六',日:'周日'}[d]||d;
+    return n2?`每月第${n1}・${n2}${zh}`:`每月第${n1}${zh}`;
+  });
+  const m={月:'周一',火:'周二',水:'周三',木:'周四',金:'周五',土:'周六',日:'周日'};
+  for(const[k,v] of Object.entries(m)) s=s.split(k).join(v);
+  return s.replace(/[・/]/g,' / ').replace(/祝/g,'节假日').replace(/\s+/g,' ').trim();
+}
+
+// ── 片假名 → 罗马字（让拼读搜索也能命中） ────────────────────────────────────
+const KR2={
+  'キャ':'kya','キュ':'kyu','キョ':'kyo','キェ':'kye',
+  'シャ':'sha','シュ':'shu','ショ':'sho','シェ':'she',
+  'チャ':'cha','チュ':'chu','チョ':'cho','チェ':'che',
+  'ニャ':'nya','ニュ':'nyu','ニョ':'nyo',
+  'ヒャ':'hya','ヒュ':'hyu','ヒョ':'hyo',
+  'ミャ':'mya','ミュ':'myu','ミョ':'myo',
+  'リャ':'rya','リュ':'ryu','リョ':'ryo',
+  'ギャ':'gya','ギュ':'gyu','ギョ':'gyo',
+  'ジャ':'ja','ジュ':'ju','ジョ':'jo','ジェ':'je',
+  'ビャ':'bya','ビュ':'byu','ビョ':'byo',
+  'ピャ':'pya','ピュ':'pyu','ピョ':'pyo',
+  'ファ':'fa','フィ':'fi','フェ':'fe','フォ':'fo','フュ':'fyu',
+  'ヴァ':'va','ヴィ':'vi','ヴェ':'ve','ヴォ':'vo',
+  'ティ':'ti','テュ':'tyu','ディ':'di','デュ':'dyu',
+  'ウィ':'wi','ウェ':'we','ウォ':'wo',
+  'ア':'a','イ':'i','ウ':'u','エ':'e','オ':'o',
+  'カ':'ka','キ':'ki','ク':'ku','ケ':'ke','コ':'ko',
+  'サ':'sa','シ':'shi','ス':'su','セ':'se','ソ':'so',
+  'タ':'ta','チ':'chi','ツ':'tsu','テ':'te','ト':'to',
+  'ナ':'na','ニ':'ni','ヌ':'nu','ネ':'ne','ノ':'no',
+  'ハ':'ha','ヒ':'hi','フ':'fu','ヘ':'he','ホ':'ho',
+  'マ':'ma','ミ':'mi','ム':'mu','メ':'me','モ':'mo',
+  'ヤ':'ya','ユ':'yu','ヨ':'yo',
+  'ラ':'ra','リ':'ri','ル':'ru','レ':'re','ロ':'ro',
+  'ワ':'wa','ヲ':'wo','ン':'n','ヴ':'vu',
+  'ガ':'ga','ギ':'gi','グ':'gu','ゲ':'ge','ゴ':'go',
+  'ザ':'za','ジ':'ji','ズ':'zu','ゼ':'ze','ゾ':'zo',
+  'ダ':'da','ヂ':'di','ヅ':'du','デ':'de','ド':'do',
+  'バ':'ba','ビ':'bi','ブ':'bu','ベ':'be','ボ':'bo',
+  'パ':'pa','ピ':'pi','プ':'pu','ペ':'pe','ポ':'po',
+  'ー':''
+};
+function toRomaji(str){
+  let r='',i=0;
+  while(i<str.length){
+    if(str[i]==='ッ'){
+      const nxt=KR2[str.slice(i+1,i+3)]||KR2[str[i+1]]||'';
+      if(nxt&&!/^[aeiou]/.test(nxt)) r+=nxt[0];
+      i++;continue;
+    }
+    const c2=KR2[str.slice(i,i+2)];
+    if(c2!==undefined){r+=c2;i+=2;continue;}
+    const c1=KR2[str[i]];
+    if(c1!==undefined){r+=c1;i++;continue;}
+    r+=str[i];i++;
+  }
+  return r;
+}
+
+// ── 英文别名（罗马字与英文差异较大时手动补充） ─────────────────────────────
+const ALIASES={
+  'グランマ':      ['grandma'],
+  'アニメイト':    ['animate'],
+  'ゲーマーズ':    ['gamers','gamer','game'],
+  'シネマサンシャイン': ['cinema','movie','theater','sunshine'],
+  'マルサンホビー':['hobby'],
+  'びゅうお':      ['view','viewo'],
+  'ドールハウス':  ['doll','dollhouse'],
+  'マリンパーク':  ['marine','park'],
+  'プレミアムショップ': ['premium','shop'],
+  'ザ・サードプラネット':['planet','third planet'],
+  'ここス':        ['cocos'],
+  'ベルマート':    ['bell','mart'],
+  'キヨスク':      ['kiosk'],
+  'リバーサイド':  ['riverside','河畔酒店','河畔'],
+  'カレーキッチン':['curry','kitchen'],
+  '印度屋':        ['india','indian'],
+  'プラサヴェルデ':['plaza','verde'],
+  'アスルクラロ':  ['azul','claro'],
+  '水族館':        ['aquarium'],
+  'マリンパーク':  ['marine'],
+  'サンビーチ':    ['beach','sunbeach'],
+  'スパイスマジック':['spice','spice magic'],
+  'ジョリーアンジュ':['jolie','ange','jolie ange'],
+  'ららぽーと':    ['lalaport'],
+  'ららぽーと':['lalaport','lalaport'],
+};
+
+function searchText(f){
+  const romaji=toRomaji(f.name).toLowerCase();
+  let s=[f.name,f.area,f.type,f.note||'',romaji].join(' ').toLowerCase();
+  for(const[jp,alts] of Object.entries(ALIASES)){
+    if(f.name.includes(jp)) s+=' '+alts.join(' ');
+  }
+  return s;
+}
+
+// ── 类型颜色 ──────────────────────────────────────────────────────────────────
+const TC={温泉:'#E6F1FB,#185FA5',公園:'#EAF3DE,#3B6D11',餐馆:'#FAEEDA,#854F0B',
+甜点:'#FBEAF0,#993556','Café':'#EEEDFE,#534AB7',参观:'#E1F5EE,#0F6E56',
+商场:'#F1EFE8,#5F5E5A',商店:'#F1EFE8,#5F5E5A',宿泊:'#E6F1FB,#185FA5',
+案内所:'#E1F5EE,#0F6E56',其他:'#F1EFE8,#5F5E5A',杂货:'#F1EFE8,#5F5E5A',
+神社:'#FCEBEB,#A32D2D',海辺:'#E6F1FB,#185FA5'};
+function ts(t){const[bg,c]=(TC[t]||'#F1EFE8,#5F5E5A').split(',');return`background:${bg};color:${c}`;}
+
+// ── 状态 ──────────────────────────────────────────────────────────────────────
+let SA='',ST='',SD=null;
+
+// ── 筛选器 ────────────────────────────────────────────────────────────────────
+function initFilters(){
+  const areas=[...new Set(FS.map(f=>f.area))];
+  const types=[...new Set(FS.map(f=>f.type))].sort();
+  document.getElementById('area-row').innerHTML=
+    `<button class="chip on" onclick="setA('')">全部地区</button>`+
+    areas.map(a=>`<button class="chip" onclick="setA('${a}')">${a}</button>`).join('');
+  document.getElementById('type-row').innerHTML=
+    `<button class="chip on" onclick="setT('')">全部类型</button>`+
+    types.map(t=>`<button class="chip" onclick="setT('${t}')">${t}</button>`).join('');
+}
+function setA(a){
+  SA=a;
+  document.querySelectorAll('#area-row .chip').forEach(b=>{
+    const ba=b.textContent==='全部地区'?'':b.textContent;
+    b.className='chip'+(ba===SA?' on':'');
+  });
+  render();
+}
+function setT(t){
+  ST=t;
+  document.querySelectorAll('#type-row .chip').forEach(b=>{
+    const bt=b.textContent==='全部类型'?'':b.textContent;
+    b.className='chip'+(bt===ST?' on':'');
+  });
+  render();
+}
+
+// ── 日期 ──────────────────────────────────────────────────────────────────────
+function setToday(){
+  const t=new Date();
+  document.getElementById('date-input').value=t.toISOString().slice(0,10);
+  SD=t; updateDay(); render();
+}
+function onDateChange(){
+  const v=document.getElementById('date-input').value;
+  if(!v){SD=null;updateDay();render();return;}
+  const[y,mo,d]=v.split('-').map(Number);
+  SD=new Date(y,mo-1,d);
+  updateDay(); render();
+}
+function updateDay(){
+  const dd=document.getElementById('day-display');
+  const dp=document.getElementById('day-pill');
+  if(!SD){dd.textContent='请选择日期';dp.textContent='';dp.className='day-pill';return;}
+  const dow=SD.getDay();
+  dd.textContent=`${SD.getFullYear()}年${SD.getMonth()+1}月${SD.getDate()}日`;
+  dp.textContent=ZHDAYS[dow];
+  dp.className='day-pill '+(dow===0||dow===6?'we':'wd');
+}
+
+// ── 卡片 ──────────────────────────────────────────────────────────────────────
+function card(f,st){
+  const closed=st==='closed';
+  const isWE=SD&&(SD.getDay()===0||SD.getDay()===6);
+  const hrs=isWE&&f.wkH?f.wkH:(f.open&&f.close?`${f.open} ～ ${f.close}`:null);
+  const rest=cdZh(f.cd);
+  const sb={open:'<span class="sbadge s-open">开门</span>',
+            closed:'<span class="sbadge s-closed">今日定休</span>',
+            maybe:'<span class="sbadge s-maybe">不定休</span>',
+            unk:'<span class="sbadge s-unk">待确认</span>'}[st]||'';
+  const nameEl=f.map
+    ?`<a class="cname cname-link" href="${f.map}" target="_blank" rel="noopener" title="在 Google Maps 查看">${f.name}<span class="map-dot"></span></a>`
+    :`<div class="cname">${f.name}</div>`;
+  return`<div class="card${closed?' dim':''}">
+  <div class="cheader">${nameEl}${SD?sb:''}</div>
+  <div class="ctags"><span class="ttag" style="${ts(f.type)}">${f.type}</span><span class="atag">${f.area}</span></div>
+  ${hrs?`<div class="chours${!closed&&SD?' hi':''}">${hrs}${isWE&&f.wkH?' <span style="font-size:10px;opacity:.7">(周末)</span>':''}</div>`:''}
+  ${rest?`<div class="crest">定休：${rest}</div>`:''}
+  ${f.price>0?`<span class="ptag">¥${f.price}${f.wkPrice&&f.wkPrice!==f.price?' / 周末¥'+f.wkPrice:''}</span>`:''}
+  ${f.price===0?`<span class="ftag">免费</span>`:''}
+  ${f.note?`<div class="cnote">${f.note}</div>`:''}
+</div>`;
+}
+
+// ── 渲染 ──────────────────────────────────────────────────────────────────────
+function render(){
+  const q=(document.getElementById('search').value||'').toLowerCase();
+  const all=FS.filter(f=>{
+    const mq=!q||searchText(f).includes(q);
+    return mq&&(!SA||f.area===SA)&&(!ST||f.type===ST);
+  });
+  const ws=all.map(f=>({f,s:status(f,SD)}));
+  // 统计
+  const statsEl=document.getElementById('stats');
+  if(SD){
+    const no=ws.filter(x=>x.s==='open').length;
+    const nc=ws.filter(x=>x.s==='closed').length;
+    const nm=ws.filter(x=>x.s==='maybe').length;
+    const nu=ws.filter(x=>x.s==='unk').length;
+    statsEl.innerHTML=
+      `<div class="stat"><span class="dot" style="background:var(--open)"></span>${no} 家开门</div>`+
+      `<div class="stat"><span class="dot" style="background:var(--closed)"></span>${nc} 家定休</div>`+
+      (nm?`<div class="stat"><span class="dot" style="background:var(--maybe)"></span>${nm} 家不定休</div>`:'')+
+      (nu?`<div class="stat"><span class="dot" style="background:var(--text3)"></span>${nu} 家待确认</div>`:'');
+  } else {
+    statsEl.innerHTML=`<div class="stat" style="color:var(--text3)">选择日期后显示营业状态</div>`;
+  }
+  const op=ws.filter(x=>x.s!=='closed');
+  const cl=ws.filter(x=>x.s==='closed');
+  const os=document.getElementById('sec-open');
+  const cs=document.getElementById('sec-closed');
+  if(!SD){
+    os.innerHTML=all.length?`<div class="cards">${all.map(f=>card(f,'unk')).join('')}</div>`:'<div class="empty">未找到相关设施</div>';
+    cs.innerHTML='';return;
+  }
+  os.innerHTML=op.length?`<div class="sec-label">开门 / 待确认 · ${op.length} 家</div><div class="cards">${op.map(({f,s})=>card(f,s)).join('')}</div>`:'';
+  cs.innerHTML=cl.length?`<div class="sec-label">今日定休 · ${cl.length} 家</div><div class="cards">${cl.map(({f,s})=>card(f,s)).join('')}</div>`:'';
+}
+
+initFilters();
+setToday();
+</script>
+</body>
+</html>

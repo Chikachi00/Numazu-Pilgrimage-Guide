@@ -5,6 +5,7 @@ import markerIcon2x from "leaflet/dist/images/marker-icon-2x.png";
 import markerIcon from "leaflet/dist/images/marker-icon.png";
 import markerShadow from "leaflet/dist/images/marker-shadow.png";
 import type { Spot } from "../../types/spot";
+import { hasVerifiedGoogleMapsCoordinate } from "../../utils/googleMaps";
 import { MapLegend } from "./MapLegend";
 import { SpotMarker } from "./SpotMarker";
 
@@ -24,7 +25,7 @@ function MapPanTo({ spot }: MapPanToProps) {
   const map = useMap();
 
   useEffect(() => {
-    if (spot) {
+    if (spot && hasVerifiedGoogleMapsCoordinate(spot)) {
       map.panTo([spot.latitude, spot.longitude], { animate: true });
     }
   }, [map, spot]);
@@ -40,6 +41,8 @@ interface MapViewProps {
 }
 
 export function MapView({ spots, selectedSpot, selectedSpotId, onSelectSpot }: MapViewProps) {
+  const markerSpots = spots.filter(hasVerifiedGoogleMapsCoordinate);
+
   return (
     <div className="map-panel">
       <MapContainer center={NUMAZU_CENTER} zoom={12} scrollWheelZoom className="leaflet-map">
@@ -48,7 +51,7 @@ export function MapView({ spots, selectedSpot, selectedSpotId, onSelectSpot }: M
           url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
         />
         <MapPanTo spot={selectedSpot} />
-        {spots.map((spot) => (
+        {markerSpots.map((spot) => (
           <SpotMarker
             key={spot.id}
             spot={spot}

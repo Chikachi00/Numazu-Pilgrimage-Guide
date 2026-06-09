@@ -2,7 +2,7 @@ import { areaLabels, typeLabels } from "../../data/labels";
 import type { PilgrimageRoute } from "../../types/route";
 import type { Spot } from "../../types/spot";
 import type { UserSpotStateMap } from "../../types/userState";
-import { getGoogleMapsUrl } from "../../utils/googleMaps";
+import { getGoogleMapsButtonLabel, getGoogleMapsUrl } from "../../utils/googleMaps";
 import { Badge } from "../ui/Badge";
 import { Card } from "../ui/Card";
 import { EmptyState } from "../ui/EmptyState";
@@ -88,6 +88,7 @@ export function RouteDetailPanel({
         <ol>
           {routeSpots.map((spot, index) => {
             const isVisited = Boolean(spotStates[spot.id]?.visited);
+            const googleMapsUrl = getGoogleMapsUrl(spot);
 
             return (
               <li key={spot.id} className={isVisited ? "is-visited" : ""}>
@@ -103,14 +104,21 @@ export function RouteDetailPanel({
                   <div className="badge-row">
                     <Badge tone="blue">{areaLabels[spot.area]}</Badge>
                     <Badge tone="gray">{typeLabels[spot.type]}</Badge>
+                    {spot.coordinateStatus === "verified" ? (
+                      <Badge tone="green">坐标已校对</Badge>
+                    ) : (
+                      <Badge tone="amber">坐标待校对</Badge>
+                    )}
                   </div>
                   <div className="route-step-actions">
                     <button className="button button-secondary" type="button" onClick={() => onViewSpotOnMap(spot.id)}>
                       查看地图中的点位
                     </button>
-                    <a className="button button-primary" href={getGoogleMapsUrl(spot)} target="_blank" rel="noreferrer">
-                      Google Maps
-                    </a>
+                    {googleMapsUrl ? (
+                      <a className="button button-primary" href={googleMapsUrl} target="_blank" rel="noreferrer">
+                        {getGoogleMapsButtonLabel(spot)}
+                      </a>
+                    ) : null}
                   </div>
                 </div>
               </li>

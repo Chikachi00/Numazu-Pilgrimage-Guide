@@ -53,6 +53,11 @@ export interface Spot {
   address?: LocalizedText;
   recommendedDurationMinutes?: number;
   googleMapsUrl?: string;
+  coordinateStatus?: "verified" | "needs_review";
+  coordinateSource?: "google_maps_place_url" | "manual_google_maps_check" | "legacy_unverified";
+  mapSearchUrl?: string;
+  lastVerifiedAt?: string;
+  verificationNote?: string;
   officialUrl?: string;
   tags?: string[];
   priority: 1 | 2 | 3;

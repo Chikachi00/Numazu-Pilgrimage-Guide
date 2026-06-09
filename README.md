@@ -50,6 +50,16 @@ Spot data lives in `src/data/spots.ts` and is manually organized by the author. 
 
 The dataset is designed as a fan travel aid, not an official guide. It uses conservative wording for places where official collaboration status should not be assumed.
 
+## Data Accuracy / Coordinate Verification
+
+Spot data is manually curated by the author. Map coordinates are not guessed by the model.
+
+Google Maps search URLs are only used as manual verification entry points. A spot is marked as `verified` only when its coordinate has been parsed from a real Google Maps place URL containing `@lat,lng` or `!3dlat!4dlng`, or when it has been manually confirmed in Google Maps.
+
+Unverified spots are marked as `needs_review` and are not shown as map markers by default. They still appear in the spot list and detail panel so they can be reviewed manually.
+
+This workflow is intentional: a pilgrimage map is only useful if it avoids sending fans to inaccurate locations.
+
 ## Copyright Notes
 
 This is an unofficial fan-made tool. It does not use official images, character artwork, anime screenshots, or other copyrighted visual assets.
