@@ -1,52 +1,53 @@
+import { useMemo, useState } from "react";
 import { AppHeader, type AppPage } from "../components/layout/AppHeader";
-import { Badge } from "../components/ui/Badge";
-import { Card } from "../components/ui/Card";
+import { RouteDetailPanel } from "../components/routes/RouteDetailPanel";
+import { RouteList } from "../components/routes/RouteList";
 import { routes } from "../data/routes";
+import { spots } from "../data/spots";
+import { useSpotStates } from "../hooks/useSpotStates";
 
 interface RoutesPageProps {
   currentPage: AppPage;
   onNavigate: (page: AppPage) => void;
 }
 
-const difficultyLabels = {
-  easy: "轻松",
-  normal: "普通",
-  packed: "紧凑",
-};
-
 export function RoutesPage({ currentPage, onNavigate }: RoutesPageProps) {
+  const [selectedRouteId, setSelectedRouteId] = useState(routes[0]?.id);
+  const { spotStates } = useSpotStates();
+  const spotsById = useMemo(() => new Map(spots.map((spot) => [spot.id, spot])), []);
+  const selectedRoute = routes.find((route) => route.id === selectedRouteId);
+
+  function handleViewSpotOnMap(spotId: string) {
+    window.location.hash = `spot=${spotId}`;
+    onNavigate("home");
+  }
+
   return (
     <>
       <AppHeader currentPage={currentPage} onNavigate={onNavigate} />
-      <main className="content-page">
+      <main className="content-page routes-page">
         <div className="page-heading">
-          <h2>人工推荐路线</h2>
-          <p>第一阶段先预留轻量路线数据，后续可以把路线与地图联动。</p>
+          <p className="eyebrow">Recommended Routes</p>
+          <h2>人工路线推荐 / Recommended Routes</h2>
+          <p>
+            这些路线不是自动生成，而是基于沼津巡礼经验手动整理，适合作为旅行参考。你在地图页标记的
+            已打卡状态，会自动反映到路线完成度里。
+          </p>
         </div>
-        <div className="route-grid">
-          {routes.map((route) => (
-            <Card key={route.id} className="route-card">
-              <div className="route-card-header">
-                <h3>{route.title.zh}</h3>
-                <Badge tone="blue">{difficultyLabels[route.difficulty]}</Badge>
-              </div>
-              <p>{route.description.zh}</p>
-              <dl>
-                <div>
-                  <dt>预计时间</dt>
-                  <dd>{route.estimatedHours} 小时</dd>
-                </div>
-                <div>
-                  <dt>交通</dt>
-                  <dd>{route.transport.zh}</dd>
-                </div>
-                <div>
-                  <dt>提示</dt>
-                  <dd>{route.tips.zh}</dd>
-                </div>
-              </dl>
-            </Card>
-          ))}
+
+        <div className="routes-layout">
+          <RouteList
+            routes={routes}
+            selectedRouteId={selectedRouteId}
+            spotStates={spotStates}
+            onSelectRoute={setSelectedRouteId}
+          />
+          <RouteDetailPanel
+            route={selectedRoute}
+            spotsById={spotsById}
+            spotStates={spotStates}
+            onViewSpotOnMap={handleViewSpotOnMap}
+          />
         </div>
       </main>
     </>

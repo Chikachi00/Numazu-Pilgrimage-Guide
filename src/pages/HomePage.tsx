@@ -18,8 +18,16 @@ interface HomePageProps {
   onNavigate: (page: AppPage) => void;
 }
 
+function getSpotIdFromHash() {
+  const hash = window.location.hash.replace(/^#/, "");
+  const params = new URLSearchParams(hash);
+  const spotId = params.get("spot");
+
+  return spotId && spots.some((spot) => spot.id === spotId) ? spotId : undefined;
+}
+
 export function HomePage({ currentPage, onNavigate }: HomePageProps) {
-  const [selectedSpotId, setSelectedSpotId] = useState(spots[0]?.id);
+  const [selectedSpotId, setSelectedSpotId] = useState(() => getSpotIdFromHash() ?? spots[0]?.id);
   const {
     filters,
     setQuery,
