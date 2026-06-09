@@ -10,6 +10,15 @@ export const areaLabels: Record<SpotArea, string> = {
   other: "其他",
 };
 
+export const areaJapaneseLabels: Record<SpotArea, string> = {
+  numazu_station: "沼津駅周辺",
+  uchiura: "内浦",
+  awashima: "淡島",
+  mitsuhama: "三津浜",
+  nagayama: "長井崎",
+  other: "その他",
+};
+
 export const typeLabels: Record<SpotType, string> = {
   anime_scene: "动画场景",
   shop: "商店",
@@ -23,6 +32,19 @@ export const typeLabels: Record<SpotType, string> = {
   other: "其他",
 };
 
+export const typeJapaneseLabels: Record<SpotType, string> = {
+  anime_scene: "アニメ場面",
+  shop: "店舗",
+  station: "駅",
+  school_related: "学校関連",
+  shrine: "神社",
+  beach: "海辺",
+  viewpoint: "展望地",
+  restaurant: "飲食",
+  transport: "交通",
+  other: "その他",
+};
+
 export const characterLabels: Record<Character, string> = {
   chika: "千歌",
   riko: "梨子",
@@ -33,6 +55,20 @@ export const characterLabels: Record<Character, string> = {
   hanamaru: "花丸",
   mari: "鞠莉",
   ruby: "露比",
+  aqours: "Aqours",
+  saint_snow: "Saint Snow",
+};
+
+export const characterJapaneseLabels: Record<Character, string> = {
+  chika: "千歌",
+  riko: "梨子",
+  kanan: "果南",
+  dia: "ダイヤ",
+  you: "曜",
+  yoshiko: "善子",
+  hanamaru: "花丸",
+  mari: "鞠莉",
+  ruby: "ルビィ",
   aqours: "Aqours",
   saint_snow: "Saint Snow",
 };

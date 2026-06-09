@@ -71,6 +71,19 @@ export function SpotDetailPanel({
         <div className="duration-box">推荐停留时间：约 {spot.recommendedDurationMinutes} 分钟</div>
       ) : null}
 
+      {spot.tags?.length ? (
+        <section className="detail-section">
+          <h3>标签</h3>
+          <div className="badge-row">
+            {spot.tags.map((tag) => (
+              <Badge key={tag} tone="gray">
+                #{tag}
+              </Badge>
+            ))}
+          </div>
+        </section>
+      ) : null}
+
       <div className="detail-actions">
         <a className="button button-primary" href={getGoogleMapsUrl(spot)} target="_blank" rel="noreferrer">
           Google Maps 导航

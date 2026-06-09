@@ -1,3 +1,4 @@
+import { areaJapaneseLabels, areaLabels, typeJapaneseLabels, typeLabels } from "../data/labels";
 import type { Character, Spot, SpotArea, SpotType } from "../types/spot";
 import type { UserSpotStateMap } from "../types/userState";
 
@@ -36,6 +37,10 @@ function matchesSearch(spot: Spot, query: string): boolean {
     spot.name.en,
     spot.description.zh,
     spot.description.ja,
+    areaLabels[spot.area],
+    areaJapaneseLabels[spot.area],
+    typeLabels[spot.type],
+    typeJapaneseLabels[spot.type],
     ...(spot.tags ?? []),
   ];
 
