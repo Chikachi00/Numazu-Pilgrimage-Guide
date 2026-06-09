@@ -2,6 +2,7 @@
   "name": "numazu-pilgrimage-guide",
   "private": true,
   "version": "0.1.0",
+  "description": "A lightweight Numazu pilgrimage guide for Love Live! Sunshine!! fans.",
   "type": "module",
   "scripts": {
     "dev": "vite",

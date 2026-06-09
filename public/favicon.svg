@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="Numazu Pilgrimage Guide">
+  <rect width="64" height="64" rx="14" fill="#e6f7fb"/>
+  <path d="M8 44c6-4 12-4 18 0s12 4 18 0 10-4 12-2v8H8z" fill="#2aa8c8"/>
+  <path d="M16 38l11-16 7 10 5-7 11 13z" fill="#ffffff"/>
+  <path d="M27 22l7 10 5-7 11 13H16z" fill="#d8f0f4"/>
+  <path d="M32 9c-8 0-14 6-14 14 0 10 14 25 14 25s14-15 14-25c0-8-6-14-14-14z" fill="#1f6f8b"/>
+  <circle cx="32" cy="23" r="5" fill="#fff7e6"/>
+  <path d="M20 47c5 3 10 3 15 0s10-3 15 0" fill="none" stroke="#ffffff" stroke-width="3" stroke-linecap="round"/>
+</svg>
