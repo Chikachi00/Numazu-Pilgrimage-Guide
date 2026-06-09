@@ -6,7 +6,7 @@ This project focuses on a clean map-first experience: curated spots, practical p
 
 ## Live Demo
 
-Live Demo: 请填写当前 workers.dev 或 pages.dev 链接
+Live Demo: https://numazu-pilgrimage-guide.vercel.app/
 
 ## Core Features
 
@@ -28,7 +28,8 @@ Live Demo: 请填写当前 workers.dev 或 pages.dev 链接
 - Leaflet
 - OpenStreetMap
 - localStorage
-- Cloudflare Workers / Pages
+- Vercel
+- Cloudflare Workers / Pages, optional backup deployment
 
 ## Project Highlights
 
@@ -57,7 +58,11 @@ npm run build
 
 ## Deployment
 
-Recommended Cloudflare Workers / Pages configuration:
+Main deployment: Vercel
+
+Backup deployment: Cloudflare Workers / Pages, optional
+
+Recommended Vercel configuration:
 
 - Build command: `npm run build`
 - Build output directory: `dist`

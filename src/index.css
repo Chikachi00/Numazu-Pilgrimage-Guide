@@ -568,7 +568,10 @@ a {
   color: var(--sea-700);
 }
 
-.about-github-link {
+.about-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
   justify-self: start;
 }
 
