@@ -47,6 +47,7 @@ function matchesSearch(spot: Spot, query: string): boolean {
     spot.name.zh,
     spot.name.ja,
     spot.name.en,
+    spot.originalGoogleMapsName,
     spot.description.zh,
     spot.description.ja,
     areaLabels[spot.area],

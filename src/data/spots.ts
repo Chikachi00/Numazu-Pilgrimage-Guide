@@ -3,7 +3,8 @@ import type { Spot } from "../types/spot";
 export const spots: Spot[] = [
 {
     id: "numazu-tourist-info-area",
-    name: { zh: "沼津站前观光案内所周边", ja: "沼津駅前観光案内所周辺", en: "Numazu Station Tourist Info Area" },
+    name: { zh: "沼津观光案内所", ja: "沼津観光案内所" },
+    originalGoogleMapsName: "沼津観光案内所",
     latitude: 35.1025619,
     longitude: 138.8594604,
     area: "numazu_station",
@@ -29,6 +30,7 @@ export const spots: Spot[] = [
 {
     id: "numazu-nakamise",
     name: { zh: "沼津仲见世商店街", ja: "沼津仲見世商店街", en: "Numazu Nakamise Shopping Street" },
+    originalGoogleMapsName: "Numazu Nakamise Shopping Street",
     latitude: 35.1011911,
     longitude: 138.8583002,
     area: "numazu_station",
@@ -53,7 +55,8 @@ export const spots: Spot[] = [
   },
 {
     id: "numazu-deep-sea-aquarium-area",
-    name: { zh: "沼津港深海水族馆周边", ja: "沼津港深海水族館周辺", en: "Numazu Deep Sea Aquarium Area" },
+    name: { zh: "沼津港深海水族馆", ja: "沼津港深海水族館", en: "Numazu Deep Sea Aquarium" },
+    originalGoogleMapsName: "Numazu Deep Sea Aquarium",
     latitude: 35.0840434,
     longitude: 138.8581967,
     area: "other",
@@ -78,7 +81,8 @@ export const spots: Spot[] = [
   },
 {
     id: "izu-mito-sea-paradise-area",
-    name: { zh: "伊豆三津海洋乐园周边", ja: "伊豆・三津シーパラダイス周辺", en: "Izu Mito Sea Paradise Area" },
+    name: { zh: "伊豆三津海洋乐园", ja: "伊豆・三津シーパラダイス", en: "Izu Mito Sea Paradise" },
+    originalGoogleMapsName: "Izu Mito Sea Paradise",
     latitude: 35.0195002,
     longitude: 138.8960105,
     area: "mitsuhama",
@@ -103,7 +107,8 @@ export const spots: Spot[] = [
   },
 {
     id: "nagaisaki-school-area",
-    name: { zh: "长井崎学校周边眺望", ja: "長井崎学校周辺", en: "Nagaisaki School Area View" },
+    name: { zh: "沼津市立长井崎中学校", ja: "沼津市立長井崎中学校" },
+    originalGoogleMapsName: "沼津市立长井崎中学校",
     latitude: 35.0213573,
     longitude: 138.8833699,
     area: "nagayama",
@@ -128,7 +133,8 @@ export const spots: Spot[] = [
   },
 {
     id: "mission-bay",
-    name: { zh: "Mission Bay", ja: "Mission Bay" },
+    name: { zh: "Mission Bay 餐厅", ja: "Mission Bay", en: "Mission Bay" },
+    originalGoogleMapsName: "Mission Bay",
     latitude: 35.07827,
     longitude: 138.8650351,
     area: "mitsuhama",
@@ -153,7 +159,8 @@ export const spots: Spot[] = [
   },
 {
     id: "麺奏-弥栄",
-    name: { zh: "麺奏 弥栄", ja: "麺奏 弥栄" },
+    name: { zh: "麺奏 弥荣", ja: "麺奏 弥栄" },
+    originalGoogleMapsName: "麺奏 弥栄",
     latitude: 35.0866698,
     longitude: 138.8639337,
     area: "mitsuhama",
@@ -178,7 +185,8 @@ export const spots: Spot[] = [
   },
 {
     id: "浅間神社",
-    name: { zh: "浅間神社", ja: "浅間神社" },
+    name: { zh: "浅间神社", ja: "浅間神社" },
+    originalGoogleMapsName: "浅間神社",
     latitude: 35.1240252,
     longitude: 138.8729096,
     area: "other",
@@ -203,7 +211,8 @@ export const spots: Spot[] = [
   },
 {
     id: "kochoji",
-    name: { zh: "Kochoji", ja: "Kochoji" },
+    name: { zh: "光长寺", ja: "光長寺", en: "Kochoji" },
+    originalGoogleMapsName: "Kochoji",
     latitude: 35.1282338,
     longitude: 138.8740756,
     area: "other",
@@ -228,7 +237,8 @@ export const spots: Spot[] = [
   },
 {
     id: "moroguchi-shrine",
-    name: { zh: "Moroguchi Shrine", ja: "Moroguchi Shrine" },
+    name: { zh: "诸口神社", ja: "諸口神社", en: "Moroguchi Shrine" },
+    originalGoogleMapsName: "Moroguchi Shrine",
     latitude: 34.9766994,
     longitude: 138.7670119,
     area: "other",
@@ -253,7 +263,8 @@ export const spots: Spot[] = [
   },
 {
     id: "jolie-ange",
-    name: { zh: "Jolie Ange", ja: "Jolie Ange" },
+    name: { zh: "Jolie Ange 甜品店", ja: "Jolie Ange", en: "Jolie Ange" },
+    originalGoogleMapsName: "Jolie Ange",
     latitude: 35.1050698,
     longitude: 138.8593512,
     area: "numazu_station",
@@ -278,7 +289,8 @@ export const spots: Spot[] = [
   },
 {
     id: "ja-fujiizu-kanaokasanchokushi",
-    name: { zh: "JA Fujiizu Kanaokasanchokushi", ja: "JA Fujiizu Kanaokasanchokushi" },
+    name: { zh: "JA 富士伊豆金冈产直市", ja: "JAふじ伊豆 金岡産直市", en: "JA Fujiizu Kanaokasanchokushi" },
+    originalGoogleMapsName: "JA Fujiizu Kanaokasanchokushi",
     latitude: 35.1219675,
     longitude: 138.8600411,
     area: "other",
@@ -303,7 +315,8 @@ export const spots: Spot[] = [
   },
 {
     id: "mihama-beach",
-    name: { zh: "Mihama Beach", ja: "Mihama Beach" },
+    name: { zh: "御滨海水浴场", ja: "御浜海水浴場", en: "Mihama Beach" },
+    originalGoogleMapsName: "Mihama Beach",
     latitude: 34.9733009,
     longitude: 138.7641746,
     area: "other",
@@ -328,7 +341,8 @@ export const spots: Spot[] = [
   },
 {
     id: "煌めきの丘",
-    name: { zh: "煌めきの丘", ja: "煌めきの丘" },
+    name: { zh: "煌めき之丘", ja: "煌めきの丘" },
+    originalGoogleMapsName: "煌めきの丘",
     latitude: 34.9965338,
     longitude: 138.7790288,
     area: "other",
@@ -353,7 +367,8 @@ export const spots: Spot[] = [
   },
 {
     id: "amimoto-mitsutokumaru-restaurant",
-    name: { zh: "Amimoto Mitsutokumaru Restaurant", ja: "Amimoto Mitsutokumaru Restaurant" },
+    name: { zh: "网元光德丸餐厅", ja: "網元 光徳丸", en: "Amimoto Mitsutokumaru Restaurant" },
+    originalGoogleMapsName: "Amimoto Mitsutokumaru Restaurant",
     latitude: 34.9720013,
     longitude: 138.777471,
     area: "other",
@@ -378,7 +393,8 @@ export const spots: Spot[] = [
   },
 {
     id: "くるら戸田-壱の湯",
-    name: { zh: "くるら戸田 壱の湯", ja: "くるら戸田 壱の湯" },
+    name: { zh: "くるら户田 壱之汤", ja: "くるら戸田 壱の湯" },
+    originalGoogleMapsName: "くるら戸田 壱の湯",
     latitude: 34.9711891,
     longitude: 138.7866968,
     area: "other",
@@ -403,7 +419,8 @@ export const spots: Spot[] = [
   },
 {
     id: "osezaki-lighthouse",
-    name: { zh: "Osezaki Lighthouse", ja: "Osezaki Lighthouse" },
+    name: { zh: "大濑崎灯塔", ja: "大瀬崎灯台", en: "Osezaki Lighthouse" },
+    originalGoogleMapsName: "Osezaki Lighthouse",
     latitude: 35.0303357,
     longitude: 138.788124,
     area: "other",
@@ -428,7 +445,8 @@ export const spots: Spot[] = [
   },
 {
     id: "deai-cape",
-    name: { zh: "Deai Cape", ja: "Deai Cape" },
+    name: { zh: "出逢岬", ja: "出逢い岬", en: "Deai Cape" },
+    originalGoogleMapsName: "Deai Cape",
     latitude: 34.9836908,
     longitude: 138.769168,
     area: "other",
@@ -453,7 +471,8 @@ export const spots: Spot[] = [
   },
 {
     id: "ramen-hyaku-shiki",
-    name: { zh: "Ramen hyaku-shiki", ja: "Ramen hyaku-shiki" },
+    name: { zh: "百式拉面", ja: "ラーメン百式", en: "Ramen hyaku-shiki" },
+    originalGoogleMapsName: "Ramen hyaku-shiki",
     latitude: 35.1074915,
     longitude: 138.858767,
     area: "numazu_station",
@@ -478,7 +497,8 @@ export const spots: Spot[] = [
   },
 {
     id: "千楽北口店",
-    name: { zh: "千楽北口店", ja: "千楽北口店" },
+    name: { zh: "千乐北口店", ja: "千楽北口店" },
+    originalGoogleMapsName: "千楽北口店",
     latitude: 35.1048128,
     longitude: 138.859259,
     area: "other",
@@ -503,7 +523,8 @@ export const spots: Spot[] = [
   },
 {
     id: "uogashizushi-numazu-shop",
-    name: { zh: "UOGASHIZUSHI Numazu Shop", ja: "UOGASHIZUSHI Numazu Shop" },
+    name: { zh: "鱼河岸寿司 沼津店", ja: "魚がし鮨 沼津店", en: "UOGASHIZUSHI Numazu Shop" },
+    originalGoogleMapsName: "UOGASHIZUSHI Numazu Shop",
     latitude: 35.1021211,
     longitude: 138.8583786,
     area: "numazu_station",
@@ -529,6 +550,7 @@ export const spots: Spot[] = [
 {
     id: "そよかぜ",
     name: { zh: "そよかぜ", ja: "そよかぜ" },
+    originalGoogleMapsName: "そよかぜ",
     latitude: 35.1064307,
     longitude: 138.8565537,
     area: "other",
@@ -553,7 +575,8 @@ export const spots: Spot[] = [
   },
 {
     id: "coffee-sakura",
-    name: { zh: "COFFEE SAKURA", ja: "COFFEE SAKURA" },
+    name: { zh: "COFFEE SAKURA 咖啡", ja: "COFFEE SAKURA", en: "COFFEE SAKURA" },
+    originalGoogleMapsName: "COFFEE SAKURA",
     latitude: 35.0930081,
     longitude: 138.8515255,
     area: "numazu_station",
@@ -578,7 +601,8 @@ export const spots: Spot[] = [
   },
 {
     id: "grandma-シーサイド店",
-    name: { zh: "Grandma シーサイド店", ja: "Grandma シーサイド店" },
+    name: { zh: "Grandma 海滨店", ja: "グランマ シーサイド店" },
+    originalGoogleMapsName: "Grandma シーサイド店",
     latitude: 35.0481791,
     longitude: 138.8860233,
     area: "numazu_station",
@@ -603,7 +627,8 @@ export const spots: Spot[] = [
   },
 {
     id: "大瀬神社",
-    name: { zh: "大瀬神社", ja: "大瀬神社" },
+    name: { zh: "大濑神社", ja: "大瀬神社" },
+    originalGoogleMapsName: "大瀬神社",
     latitude: 35.0281336,
     longitude: 138.786502,
     area: "other",
@@ -628,7 +653,8 @@ export const spots: Spot[] = [
   },
 {
     id: "italian-kitchen-vansan-numazu",
-    name: { zh: "Italian Kitchen VANSAN Numazu", ja: "Italian Kitchen VANSAN Numazu" },
+    name: { zh: "Italian Kitchen VANSAN 沼津店", ja: "Italian Kitchen VANSAN 沼津店", en: "Italian Kitchen VANSAN Numazu" },
+    originalGoogleMapsName: "Italian Kitchen VANSAN Numazu",
     latitude: 35.1020506,
     longitude: 138.8606476,
     area: "numazu_station",
@@ -653,7 +679,8 @@ export const spots: Spot[] = [
   },
 {
     id: "冨久家-沼津ケーキ店",
-    name: { zh: "冨久家 沼津ケーキ店", ja: "冨久家 沼津ケーキ店" },
+    name: { zh: "冨久家 沼津蛋糕店", ja: "冨久家 沼津ケーキ店" },
+    originalGoogleMapsName: "冨久家 沼津ケーキ店",
     latitude: 35.0950506,
     longitude: 138.863367,
     area: "other",
@@ -678,7 +705,8 @@ export const spots: Spot[] = [
   },
 {
     id: "shofuku-ramen-main-store",
-    name: { zh: "Shōfuku Ramen Main Store", ja: "Shōfuku Ramen Main Store" },
+    name: { zh: "松福拉面 本店", ja: "松福ラーメン 本店" },
+    originalGoogleMapsName: "Shōfuku Ramen Main Store",
     latitude: 35.0847957,
     longitude: 138.8582828,
     area: "mitsuhama",
@@ -703,7 +731,8 @@ export const spots: Spot[] = [
   },
 {
     id: "donguri",
-    name: { zh: "Donguri", ja: "Donguri" },
+    name: { zh: "どんぐり餐厅", ja: "どんぐり", en: "Donguri" },
+    originalGoogleMapsName: "Donguri",
     latitude: 35.1011051,
     longitude: 138.8580007,
     area: "other",
@@ -728,7 +757,8 @@ export const spots: Spot[] = [
   },
 {
     id: "todanittaumebayashi-park",
-    name: { zh: "Todanittaumebayashi Park", ja: "Todanittaumebayashi Park" },
+    name: { zh: "户田新田梅林公园", ja: "戸田新田梅林公園", en: "Todanittaumebayashi Park" },
+    originalGoogleMapsName: "Todanittaumebayashi Park",
     latitude: 34.9616179,
     longitude: 138.8155435,
     area: "other",
@@ -753,7 +783,8 @@ export const spots: Spot[] = [
   },
 {
     id: "heda-fishing-port",
-    name: { zh: "Heda Fishing Port", ja: "Heda Fishing Port" },
+    name: { zh: "户田渔港", ja: "戸田漁港", en: "Heda Fishing Port" },
+    originalGoogleMapsName: "Heda Fishing Port",
     latitude: 34.9713699,
     longitude: 138.7764437,
     area: "other",
@@ -778,7 +809,8 @@ export const spots: Spot[] = [
   },
 {
     id: "渡辺商店",
-    name: { zh: "渡辺商店", ja: "渡辺商店" },
+    name: { zh: "渡边商店", ja: "渡辺商店" },
+    originalGoogleMapsName: "渡辺商店",
     latitude: 35.0990261,
     longitude: 138.8523847,
     area: "other",
@@ -803,7 +835,8 @@ export const spots: Spot[] = [
   },
 {
     id: "spice-magic",
-    name: { zh: "Spice magic", ja: "Spice magic" },
+    name: { zh: "Spice Magic 沼津店", ja: "スパイスマジック沼津店", en: "Spice magic" },
+    originalGoogleMapsName: "Spice magic",
     latitude: 35.0990863,
     longitude: 138.859128,
     area: "numazu_station",
@@ -828,7 +861,8 @@ export const spots: Spot[] = [
   },
 {
     id: "miyakoan",
-    name: { zh: "Miyakoan", ja: "Miyakoan" },
+    name: { zh: "Miyakoan 餐厅", ja: "Miyakoan", en: "Miyakoan" },
+    originalGoogleMapsName: "Miyakoan",
     latitude: 35.1136234,
     longitude: 138.8523014,
     area: "other",
@@ -853,7 +887,8 @@ export const spots: Spot[] = [
   },
 {
     id: "駿河の湯-坂口屋",
-    name: { zh: "駿河の湯 坂口屋", ja: "駿河の湯 坂口屋" },
+    name: { zh: "骏河之汤 坂口屋", ja: "駿河の湯 坂口屋" },
+    originalGoogleMapsName: "駿河の湯 坂口屋",
     latitude: 35.138728,
     longitude: 138.868794,
     area: "other",
@@ -878,7 +913,8 @@ export const spots: Spot[] = [
   },
 {
     id: "田口音楽教室",
-    name: { zh: "田口音楽教室", ja: "田口音楽教室" },
+    name: { zh: "田口音乐教室", ja: "田口音楽教室" },
+    originalGoogleMapsName: "田口音楽教室",
     latitude: 35.0928693,
     longitude: 138.8552688,
     area: "other",
@@ -903,7 +939,8 @@ export const spots: Spot[] = [
   },
 {
     id: "御食事処・仕出し弁当-浜忠",
-    name: { zh: "御食事処・仕出し弁当 ｢浜忠｣", ja: "御食事処・仕出し弁当 ｢浜忠｣" },
+    name: { zh: "浜忠 食事处・便当", ja: "御食事処・仕出し弁当「浜忠」" },
+    originalGoogleMapsName: "御食事処・仕出し弁当 ｢浜忠｣",
     latitude: 35.0981608,
     longitude: 138.8583191,
     area: "other",
@@ -928,7 +965,8 @@ export const spots: Spot[] = [
   },
 {
     id: "sanco-inn-numazu-ekimae",
-    name: { zh: "Sanco Inn Numazu Ekimae", ja: "Sanco Inn Numazu Ekimae" },
+    name: { zh: "三交 Inn 沼津站前", ja: "三交イン沼津駅前", en: "Sanco Inn Numazu Ekimae" },
+    originalGoogleMapsName: "Sanco Inn Numazu Ekimae",
     latitude: 35.101028,
     longitude: 138.858776,
     area: "numazu_station",
@@ -953,7 +991,8 @@ export const spots: Spot[] = [
   },
 {
     id: "happy-fine",
-    name: { zh: "Happy Fine", ja: "Happy Fine" },
+    name: { zh: "Happy Fine", ja: "Happy Fine", en: "Happy Fine" },
+    originalGoogleMapsName: "Happy Fine",
     latitude: 35.1055853,
     longitude: 138.8594424,
     area: "other",
@@ -978,7 +1017,8 @@ export const spots: Spot[] = [
   },
 {
     id: "静铁商旅prezio-沼津",
-    name: { zh: "静铁商旅Prezio 沼津", ja: "静铁商旅Prezio 沼津" },
+    name: { zh: "静铁酒店 Prezio 沼津", ja: "静鉄ホテルプレジオ沼津" },
+    originalGoogleMapsName: "静铁商旅Prezio 沼津",
     latitude: 35.105354,
     longitude: 138.8609338,
     area: "other",
@@ -1003,7 +1043,8 @@ export const spots: Spot[] = [
   },
 {
     id: "neopasa-surugawan-numazu-westbound",
-    name: { zh: "NEOPASA Surugawan Numazu Westbound", ja: "NEOPASA Surugawan Numazu Westbound" },
+    name: { zh: "NEOPASA 骏河湾沼津（西行）", ja: "NEOPASA駿河湾沼津（下り）", en: "NEOPASA Surugawan Numazu Westbound" },
+    originalGoogleMapsName: "NEOPASA Surugawan Numazu Westbound",
     latitude: 35.1521532,
     longitude: 138.8115811,
     area: "numazu_station",
@@ -1028,7 +1069,8 @@ export const spots: Spot[] = [
   },
 {
     id: "meijichakan",
-    name: { zh: "Meijichakan", ja: "Meijichakan" },
+    name: { zh: "明治茶馆", ja: "明治茶館", en: "Meijichakan" },
+    originalGoogleMapsName: "Meijichakan",
     latitude: 35.120609,
     longitude: 138.8571777,
     area: "other",
@@ -1053,7 +1095,8 @@ export const spots: Spot[] = [
   },
 {
     id: "takedamaru",
-    name: { zh: "TAKEDAMARU", ja: "TAKEDAMARU" },
+    name: { zh: "TAKEDAMARU", ja: "TAKEDAMARU", en: "TAKEDAMARU" },
+    originalGoogleMapsName: "TAKEDAMARU",
     latitude: 35.0821336,
     longitude: 138.8586658,
     area: "mitsuhama",
@@ -1078,7 +1121,8 @@ export const spots: Spot[] = [
   },
 {
     id: "lalaport-numazu",
-    name: { zh: "LaLaport Numazu", ja: "LaLaport Numazu" },
+    name: { zh: "LaLaport 沼津", ja: "ららぽーと沼津", en: "LaLaport Numazu" },
+    originalGoogleMapsName: "LaLaport Numazu",
     latitude: 35.1188739,
     longitude: 138.8402585,
     area: "numazu_station",
@@ -1103,7 +1147,8 @@ export const spots: Spot[] = [
   },
 {
     id: "grandma-agetsuchi-main-store",
-    name: { zh: "Grandma Agetsuchi Main Store", ja: "Grandma Agetsuchi Main Store" },
+    name: { zh: "Grandma 上土本店", ja: "グランマ 上土本店", en: "Grandma Agetsuchi Main Store" },
+    originalGoogleMapsName: "Grandma Agetsuchi Main Store",
     latitude: 35.0975843,
     longitude: 138.8580862,
     area: "numazu_station",
@@ -1128,7 +1173,8 @@ export const spots: Spot[] = [
   },
 {
     id: "kimuraya",
-    name: { zh: "KIMURAYA", ja: "KIMURAYA" },
+    name: { zh: "KIMURAYA", ja: "KIMURAYA", en: "KIMURAYA" },
+    originalGoogleMapsName: "KIMURAYA",
     latitude: 35.0821761,
     longitude: 138.8582655,
     area: "mitsuhama",
@@ -1153,7 +1199,8 @@ export const spots: Spot[] = [
   },
 {
     id: "koko-hotel-numazu-ekimae",
-    name: { zh: "KOKO HOTEL NUMAZU EKIMAE", ja: "KOKO HOTEL NUMAZU EKIMAE" },
+    name: { zh: "KOKO HOTEL 沼津站前", ja: "KOKO HOTEL 沼津駅前", en: "KOKO HOTEL NUMAZU EKIMAE" },
+    originalGoogleMapsName: "KOKO HOTEL NUMAZU EKIMAE",
     latitude: 35.1051126,
     longitude: 138.8597472,
     area: "numazu_station",
@@ -1178,7 +1225,8 @@ export const spots: Spot[] = [
   },
 {
     id: "爱鹰广域公园多目的竞技场",
-    name: { zh: "爱鹰广域公园多目的竞技场", ja: "爱鹰广域公园多目的竞技场" },
+    name: { zh: "爱鹰广域公园多目的竞技场", ja: "愛鷹広域公園多目的競技場" },
+    originalGoogleMapsName: "爱鹰广域公园多目的竞技场",
     latitude: 35.1558927,
     longitude: 138.8536669,
     area: "other",
@@ -1203,7 +1251,8 @@ export const spots: Spot[] = [
   },
 {
     id: "ashitakacha-no-marunichagyou",
-    name: { zh: "ASHITAKACHA NO MARUNICHAGYOU", ja: "ASHITAKACHA NO MARUNICHAGYOU" },
+    name: { zh: "爱鹰茶 丸二茶业", ja: "愛鷹茶の丸二茶業", en: "ASHITAKACHA NO MARUNICHAGYOU" },
+    originalGoogleMapsName: "ASHITAKACHA NO MARUNICHAGYOU",
     latitude: 35.083629,
     longitude: 138.8574197,
     area: "mitsuhama",
@@ -1228,7 +1277,8 @@ export const spots: Spot[] = [
   },
 {
     id: "numazu-port-observatory-water-gate",
-    name: { zh: "Numazu Port Observatory Water Gate", ja: "Numazu Port Observatory Water Gate" },
+    name: { zh: "沼津港大型展望水门 びゅうお", ja: "沼津港大型展望水門 びゅうお", en: "Numazu Port Observatory Water Gate" },
+    originalGoogleMapsName: "Numazu Port Observatory Water Gate",
     latitude: 35.0813277,
     longitude: 138.8544986,
     area: "mitsuhama",
@@ -1253,7 +1303,8 @@ export const spots: Spot[] = [
   },
 {
     id: "伊豆长冈",
-    name: { zh: "伊豆长冈", ja: "伊豆长冈" },
+    name: { zh: "伊豆长冈", ja: "伊豆長岡" },
+    originalGoogleMapsName: "伊豆长冈",
     latitude: 35.0397977,
     longitude: 138.9473959,
     area: "other",
@@ -1278,7 +1329,8 @@ export const spots: Spot[] = [
   },
 {
     id: "千本浜",
-    name: { zh: "千本浜", ja: "千本浜" },
+    name: { zh: "千本滨", ja: "千本浜" },
+    originalGoogleMapsName: "千本浜",
     latitude: 35.0895744,
     longitude: 138.8483303,
     area: "other",
@@ -1303,7 +1355,8 @@ export const spots: Spot[] = [
   },
 {
     id: "takazawa-park",
-    name: { zh: "Takazawa Park", ja: "Takazawa Park" },
+    name: { zh: "高泽公园", ja: "高沢公園", en: "Takazawa Park" },
+    originalGoogleMapsName: "Takazawa Park",
     latitude: 35.1052511,
     longitude: 138.8553411,
     area: "other",
@@ -1328,7 +1381,8 @@ export const spots: Spot[] = [
   },
 {
     id: "和風食堂-弥次喜多-平町店",
-    name: { zh: "和風食堂 弥次喜多 平町店", ja: "和風食堂 弥次喜多 平町店" },
+    name: { zh: "和风食堂 弥次喜多 平町店", ja: "和風食堂 弥次喜多 平町店" },
+    originalGoogleMapsName: "和風食堂 弥次喜多 平町店",
     latitude: 35.0996604,
     longitude: 138.8685882,
     area: "other",
@@ -1353,7 +1407,8 @@ export const spots: Spot[] = [
   },
 {
     id: "bivi-numazu",
-    name: { zh: "BiVi Numazu", ja: "BiVi Numazu" },
+    name: { zh: "BiVi 沼津", ja: "BiVi沼津", en: "BiVi Numazu" },
+    originalGoogleMapsName: "BiVi Numazu",
     latitude: 35.1039755,
     longitude: 138.8610155,
     area: "numazu_station",
@@ -1378,7 +1433,8 @@ export const spots: Spot[] = [
   },
 {
     id: "numazu-hie-shrine",
-    name: { zh: "Numazu Hie Shrine", ja: "Numazu Hie Shrine" },
+    name: { zh: "沼津日枝神社", ja: "沼津日枝神社", en: "Numazu Hie Shrine" },
+    originalGoogleMapsName: "Numazu Hie Shrine",
     latitude: 35.1012052,
     longitude: 138.8688568,
     area: "numazu_station",
@@ -1404,6 +1460,7 @@ export const spots: Spot[] = [
 {
     id: "呑み処ふじ",
     name: { zh: "呑み処ふじ", ja: "呑み処ふじ" },
+    originalGoogleMapsName: "呑み処ふじ",
     latitude: 35.0849187,
     longitude: 138.8691502,
     area: "other",
@@ -1428,7 +1485,8 @@ export const spots: Spot[] = [
   },
 {
     id: "maruka-orange-center",
-    name: { zh: "Maruka Orange Center", ja: "Maruka Orange Center" },
+    name: { zh: "Maruka 橙子中心", ja: "マルカオレンヂセンター", en: "Maruka Orange Center" },
+    originalGoogleMapsName: "Maruka Orange Center",
     latitude: 35.0173939,
     longitude: 138.8869768,
     area: "other",
@@ -1453,7 +1511,8 @@ export const spots: Spot[] = [
   },
 {
     id: "super-hotel-jr-fuji-ekimae-kinenkan",
-    name: { zh: "Super Hotel JR Fuji Ekimae Kinenkan", ja: "Super Hotel JR Fuji Ekimae Kinenkan" },
+    name: { zh: "Super Hotel JR 富士站前禁烟馆", ja: "スーパーホテルJR富士駅前禁煙館", en: "Super Hotel JR Fuji Ekimae Kinenkan" },
+    originalGoogleMapsName: "Super Hotel JR Fuji Ekimae Kinenkan",
     latitude: 35.1506047,
     longitude: 138.6517464,
     area: "numazu_station",
@@ -1479,6 +1538,7 @@ export const spots: Spot[] = [
 {
     id: "辻宗商店",
     name: { zh: "辻宗商店", ja: "辻宗商店" },
+    originalGoogleMapsName: "辻宗商店",
     latitude: 35.0254648,
     longitude: 138.8984327,
     area: "uchiura",
@@ -1503,7 +1563,8 @@ export const spots: Spot[] = [
   },
 {
     id: "daiwa-roynet-hotel-numazu",
-    name: { zh: "Daiwa Roynet Hotel Numazu", ja: "Daiwa Roynet Hotel Numazu" },
+    name: { zh: "大和 Roynet 酒店 沼津", ja: "ダイワロイネットホテルぬまづ", en: "Daiwa Roynet Hotel Numazu" },
+    originalGoogleMapsName: "Daiwa Roynet Hotel Numazu",
     latitude: 35.1041515,
     longitude: 138.86158,
     area: "numazu_station",
@@ -1528,7 +1589,8 @@ export const spots: Spot[] = [
   },
 {
     id: "love-live-sunshine-and-yohane-the-parhelion-premium-shop",
-    name: { zh: "Love Live! Sunshine!! & Yohane the Parhelion Premium Shop", ja: "Love Live! Sunshine!! & Yohane the Parhelion Premium Shop" },
+    name: { zh: "Love Live! Sunshine!! & 幻日夜羽 Premium Shop", ja: "Love Live! Sunshine!! & 幻日のヨハネ Premium Shop", en: "Love Live! Sunshine!! & Yohane the Parhelion Premium Shop" },
+    originalGoogleMapsName: "Love Live! Sunshine!! & Yohane the Parhelion Premium Shop",
     latitude: 35.1039507,
     longitude: 138.8609138,
     area: "numazu_station",
@@ -1554,6 +1616,7 @@ export const spots: Spot[] = [
 {
     id: "港八十三番地",
     name: { zh: "港八十三番地", ja: "港八十三番地" },
+    originalGoogleMapsName: "港八十三番地",
     latitude: 35.0839084,
     longitude: 138.8579701,
     area: "mitsuhama",
@@ -1578,7 +1641,8 @@ export const spots: Spot[] = [
   },
 {
     id: "karukuru-numazuten",
-    name: { zh: "Karukuru numazuten", ja: "Karukuru numazuten" },
+    name: { zh: "Karukuru 沼津店", ja: "カルクル沼津店", en: "Karukuru numazuten" },
+    originalGoogleMapsName: "Karukuru numazuten",
     latitude: 35.100269,
     longitude: 138.858696,
     area: "numazu_station",
@@ -1603,7 +1667,8 @@ export const spots: Spot[] = [
   },
 {
     id: "gamers-numazu-store",
-    name: { zh: "Gamers Numazu store", ja: "Gamers Numazu store" },
+    name: { zh: "Gamers 沼津店", ja: "ゲーマーズ沼津店", en: "Gamers Numazu store" },
+    originalGoogleMapsName: "Gamers Numazu store",
     latitude: 35.1015947,
     longitude: 138.8568484,
     area: "numazu_station",
@@ -1628,7 +1693,8 @@ export const spots: Spot[] = [
   },
 {
     id: "doll-house-kimura",
-    name: { zh: "Doll House Kimura", ja: "Doll House Kimura" },
+    name: { zh: "Doll House 木村", ja: "ドールハウス木村", en: "Doll House Kimura" },
+    originalGoogleMapsName: "Doll House Kimura",
     latitude: 35.1001865,
     longitude: 138.8575233,
     area: "other",
@@ -1653,7 +1719,8 @@ export const spots: Spot[] = [
   },
 {
     id: "awashima-hotel",
-    name: { zh: "Awashima Hotel", ja: "Awashima Hotel" },
+    name: { zh: "淡岛酒店", ja: "淡島ホテル", en: "Awashima Hotel" },
+    originalGoogleMapsName: "Awashima Hotel",
     latitude: 35.03553,
     longitude: 138.8868255,
     area: "awashima",
@@ -1678,7 +1745,8 @@ export const spots: Spot[] = [
   },
 {
     id: "淡岛神社",
-    name: { zh: "淡岛神社", ja: "淡岛神社" },
+    name: { zh: "淡岛神社", ja: "淡島神社" },
+    originalGoogleMapsName: "淡岛神社",
     latitude: 35.0331089,
     longitude: 138.8876469,
     area: "awashima",
@@ -1703,7 +1771,8 @@ export const spots: Spot[] = [
   },
 {
     id: "tsuji-photography",
-    name: { zh: "Tsuji Photography", ja: "Tsuji Photography" },
+    name: { zh: "辻写真馆", ja: "辻写真館", en: "Tsuji Photography" },
+    originalGoogleMapsName: "Tsuji Photography",
     latitude: 35.096956,
     longitude: 138.857443,
     area: "other",
@@ -1728,7 +1797,8 @@ export const spots: Spot[] = [
   },
 {
     id: "oh-mos",
-    name: { zh: "OH!MOS", ja: "OH!MOS" },
+    name: { zh: "OH!MOS 商店", ja: "OH!MOS", en: "OH!MOS" },
+    originalGoogleMapsName: "OH!MOS",
     latitude: 35.0174129,
     longitude: 138.8882402,
     area: "uchiura",
@@ -1753,7 +1823,8 @@ export const spots: Spot[] = [
   },
 {
     id: "海鮮料理とさわや",
-    name: { zh: "海鮮料理とさわや", ja: "海鮮料理とさわや" },
+    name: { zh: "海鲜料理 とさわや", ja: "海鮮料理とさわや" },
+    originalGoogleMapsName: "海鮮料理とさわや",
     latitude: 35.0229088,
     longitude: 138.8984251,
     area: "other",
@@ -1778,7 +1849,8 @@ export const spots: Spot[] = [
   },
 {
     id: "dhaba-shimokanuki",
-    name: { zh: "Dhaba Shimokanuki", ja: "Dhaba Shimokanuki" },
+    name: { zh: "Dhaba 下香贯店", ja: "Dhaba Shimokanuki", en: "Dhaba Shimokanuki" },
+    originalGoogleMapsName: "Dhaba Shimokanuki",
     latitude: 35.0755162,
     longitude: 138.8726994,
     area: "other",
@@ -1803,7 +1875,8 @@ export const spots: Spot[] = [
   },
 {
     id: "frog-house",
-    name: { zh: "Frog House", ja: "Frog House" },
+    name: { zh: "Frog House", ja: "Frog House", en: "Frog House" },
+    originalGoogleMapsName: "Frog House",
     latitude: 35.0328059,
     longitude: 138.8901839,
     area: "other",
@@ -1829,6 +1902,7 @@ export const spots: Spot[] = [
 {
     id: "松月",
     name: { zh: "松月", ja: "松月" },
+    originalGoogleMapsName: "松月",
     latitude: 35.0221512,
     longitude: 138.8980626,
     area: "uchiura",
@@ -1853,7 +1927,8 @@ export const spots: Spot[] = [
   },
 {
     id: "matsuura-liquor-store",
-    name: { zh: "Matsuura Liquor Store", ja: "Matsuura Liquor Store" },
+    name: { zh: "松浦酒店", ja: "松浦酒店", en: "Matsuura Liquor Store" },
+    originalGoogleMapsName: "Matsuura Liquor Store",
     latitude: 35.0995265,
     longitude: 138.8591075,
     area: "other",
@@ -1878,7 +1953,8 @@ export const spots: Spot[] = [
   },
 {
     id: "central-park",
-    name: { zh: "Central Park", ja: "Central Park" },
+    name: { zh: "中央公园", ja: "中央公園", en: "Central Park" },
+    originalGoogleMapsName: "Central Park",
     latitude: 35.0987559,
     longitude: 138.8596195,
     area: "other",
@@ -1903,7 +1979,8 @@ export const spots: Spot[] = [
   },
 {
     id: "上土朝日稲荷神社",
-    name: { zh: "上土朝日稲荷神社", ja: "上土朝日稲荷神社" },
+    name: { zh: "上土朝日稻荷神社", ja: "上土朝日稲荷神社" },
+    originalGoogleMapsName: "上土朝日稲荷神社",
     latitude: 35.096658,
     longitude: 138.8585491,
     area: "numazu_station",
@@ -1928,7 +2005,8 @@ export const spots: Spot[] = [
   },
 {
     id: "三之浦综合案内所",
-    name: { zh: "三之浦综合案内所", ja: "三之浦综合案内所" },
+    name: { zh: "三之浦综合案内所", ja: "三の浦総合案内所" },
+    originalGoogleMapsName: "三之浦综合案内所",
     latitude: 35.0177383,
     longitude: 138.893332,
     area: "uchiura",
@@ -1953,7 +2031,8 @@ export const spots: Spot[] = [
   },
 {
     id: "rivage",
-    name: { zh: "RIVAGE", ja: "RIVAGE" },
+    name: { zh: "RIVAGE 餐厅", ja: "RIVAGE", en: "RIVAGE" },
+    originalGoogleMapsName: "RIVAGE",
     latitude: 35.0749555,
     longitude: 138.8707538,
     area: "other",
@@ -1978,7 +2057,8 @@ export const spots: Spot[] = [
   },
 {
     id: "numazu-riverside-hotel",
-    name: { zh: "Numazu Riverside Hotel", ja: "Numazu Riverside Hotel" },
+    name: { zh: "沼津河畔酒店", ja: "沼津リバーサイドホテル", en: "Numazu Riverside Hotel" },
+    originalGoogleMapsName: "Numazu Riverside Hotel",
     latitude: 35.0968993,
     longitude: 138.8584654,
     area: "numazu_station",
@@ -2003,7 +2083,8 @@ export const spots: Spot[] = [
   },
 {
     id: "kakita-river-park",
-    name: { zh: "Kakita River Park", ja: "Kakita River Park" },
+    name: { zh: "柿田川公园", ja: "柿田川公園", en: "Kakita River Park" },
+    originalGoogleMapsName: "Kakita River Park",
     latitude: 35.1067921,
     longitude: 138.901711,
     area: "other",
@@ -2028,7 +2109,8 @@ export const spots: Spot[] = [
   },
 {
     id: "欧兰陀馆-下河原店",
-    name: { zh: "欧兰陀馆 下河原店", ja: "欧兰陀馆 下河原店" },
+    name: { zh: "欧兰陀馆 下河原店", ja: "欧蘭陀館 下河原店" },
+    originalGoogleMapsName: "欧兰陀馆 下河原店",
     latitude: 35.0907531,
     longitude: 138.8580691,
     area: "other",
@@ -2053,7 +2135,8 @@ export const spots: Spot[] = [
   },
 {
     id: "the-bluewater",
-    name: { zh: "THE BLUEWATER", ja: "THE BLUEWATER" },
+    name: { zh: "THE BLUEWATER", ja: "THE BLUE WATER", en: "THE BLUEWATER" },
+    originalGoogleMapsName: "THE BLUEWATER",
     latitude: 35.0951046,
     longitude: 138.8578319,
     area: "numazu_station",
@@ -2078,7 +2161,8 @@ export const spots: Spot[] = [
   },
 {
     id: "安田屋旅馆",
-    name: { zh: "安田屋旅馆", ja: "安田屋旅馆" },
+    name: { zh: "安田屋旅馆", ja: "安田屋旅館" },
+    originalGoogleMapsName: "安田屋旅馆",
     latitude: 35.020424,
     longitude: 138.897573,
     area: "uchiura",

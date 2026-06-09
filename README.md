@@ -76,6 +76,10 @@ The current formal spot dataset only keeps places that have a user-provided Goog
 
 Future spots should first be supplied as Google Maps place URLs, then imported as verified coordinates. This keeps every map marker tied to a checked place URL and avoids model-guessed coordinates.
 
+Spot names are localized for the Chinese UI. The main display name prioritizes a natural Chinese name, while Japanese names and the original Google Maps place name are preserved where possible for manual cross-checking.
+
+Name localization does not change coordinate provenance: coordinates still come from user-provided Google Maps place URLs.
+
 This workflow is intentional: a pilgrimage map is only useful if it avoids sending fans to inaccurate locations.
 
 ## Copyright Notes

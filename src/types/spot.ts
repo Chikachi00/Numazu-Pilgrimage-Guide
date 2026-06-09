@@ -50,6 +50,7 @@ export interface Spot {
   id: string;
   name: LocalizedText;
   shortName?: LocalizedText;
+  originalGoogleMapsName?: string;
   latitude: number;
   longitude: number;
   area: SpotArea;

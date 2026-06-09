@@ -28,6 +28,14 @@ function DetailSection({ title, content }: { title: string; content?: string }) 
   );
 }
 
+function getSubtitle(spot: Spot) {
+  const parts = [spot.name.ja, spot.originalGoogleMapsName].filter(
+    (value, index, values): value is string => Boolean(value) && values.indexOf(value) === index && value !== spot.name.zh,
+  );
+
+  return parts.join(" / ");
+}
+
 export function SpotDetailPanel({
   spot,
   state,
@@ -45,13 +53,14 @@ export function SpotDetailPanel({
 
   const googleMapsUrl = getGoogleMapsUrl(spot);
   const isCoordinateVerified = spot.coordinateStatus === "verified";
+  const subtitle = getSubtitle(spot);
 
   return (
     <Card className="detail-panel">
       <div className="detail-header">
         <div>
           <h2>{spot.name.zh}</h2>
-          {spot.name.ja ? <p>{spot.name.ja}</p> : null}
+          {subtitle ? <p>{subtitle}</p> : null}
         </div>
         <Badge tone="green">{areaLabels[spot.area]}</Badge>
       </div>
