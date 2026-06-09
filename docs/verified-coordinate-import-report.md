@@ -107,3 +107,16 @@
 | URL | Reason |
 | --- | ------ |
 | _None_ | _None_ |
+
+## Layering Summary
+
+* pilgrimage_core: 33
+* food: 20
+* shopping: 11
+* hotel: 7
+* transport: 4
+* scenic: 20
+* auxiliary: 19
+* featured: 24
+* hiddenByDefault: 80
+* default featured verified markers: 18

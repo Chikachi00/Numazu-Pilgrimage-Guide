@@ -26,15 +26,30 @@ function getSpotIdFromHash() {
   return spotId && spots.some((spot) => spot.id === spotId) ? spotId : undefined;
 }
 
+function getDefaultSpotId() {
+  return (
+    spots.find(
+      (spot) =>
+        spot.coordinateStatus === "verified" &&
+        spot.isHiddenByDefault !== true &&
+        (spot.isFeatured === true || spot.spotLayer === "pilgrimage_core"),
+    )?.id ??
+    spots.find((spot) => spot.coordinateStatus === "verified")?.id ??
+    spots[0]?.id
+  );
+}
+
 export function HomePage({ currentPage, onNavigate }: HomePageProps) {
-  const [selectedSpotId, setSelectedSpotId] = useState(() => getSpotIdFromHash() ?? spots[0]?.id);
+  const [selectedSpotId, setSelectedSpotId] = useState(() => getSpotIdFromHash() ?? getDefaultSpotId());
   const {
     filters,
     setQuery,
     toggleArea,
     toggleType,
+    toggleLayer,
     toggleCharacter,
     setStatus,
+    setVisibilityMode,
     clearFilters,
   } = useSpotFilters();
   const {
@@ -62,8 +77,10 @@ export function HomePage({ currentPage, onNavigate }: HomePageProps) {
           filters={filters}
           onToggleArea={toggleArea}
           onToggleType={toggleType}
+          onToggleLayer={toggleLayer}
           onToggleCharacter={toggleCharacter}
           onStatusChange={setStatus}
+          onVisibilityModeChange={setVisibilityMode}
           onClear={clearFilters}
         />
       </Card>

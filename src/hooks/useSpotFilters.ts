@@ -1,5 +1,5 @@
-import type { Character, SpotArea, SpotType } from "../types/spot";
-import type { StatusFilter } from "../utils/filters";
+import type { Character, SpotArea, SpotLayer, SpotType } from "../types/spot";
+import type { SpotVisibilityMode, StatusFilter } from "../utils/filters";
 import { DEFAULT_FILTERS, type SpotFilters } from "../utils/filters";
 import { STORAGE_KEYS } from "../utils/storage";
 import { useLocalStorage } from "./useLocalStorage";
@@ -29,6 +29,12 @@ export function useSpotFilters() {
         ...current,
         types: toggleValue((current.types ?? []) as SpotType[], type),
       })),
+    toggleLayer: (layer: SpotLayer) =>
+      setFilters((current) => ({
+        ...DEFAULT_FILTERS,
+        ...current,
+        layers: toggleValue((current.layers ?? []) as SpotLayer[], layer),
+      })),
     toggleCharacter: (character: Character) =>
       setFilters((current) => ({
         ...DEFAULT_FILTERS,
@@ -40,6 +46,12 @@ export function useSpotFilters() {
         ...DEFAULT_FILTERS,
         ...current,
         status,
+      })),
+    setVisibilityMode: (visibilityMode: SpotVisibilityMode) =>
+      setFilters((current) => ({
+        ...DEFAULT_FILTERS,
+        ...current,
+        visibilityMode,
       })),
     clearFilters: () => setFilters(DEFAULT_FILTERS),
   };

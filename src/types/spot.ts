@@ -31,6 +31,15 @@ export type Character =
   | "aqours"
   | "saint_snow";
 
+export type SpotLayer =
+  | "pilgrimage_core"
+  | "food"
+  | "shopping"
+  | "hotel"
+  | "transport"
+  | "scenic"
+  | "auxiliary";
+
 export interface LocalizedText {
   zh: string;
   ja?: string;
@@ -45,6 +54,9 @@ export interface Spot {
   longitude: number;
   area: SpotArea;
   type: SpotType;
+  spotLayer?: SpotLayer;
+  isFeatured?: boolean;
+  isHiddenByDefault?: boolean;
   characters: Character[];
   description: LocalizedText;
   pilgrimageNote?: LocalizedText;

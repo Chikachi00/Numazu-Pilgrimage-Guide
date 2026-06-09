@@ -1,4 +1,4 @@
-import { areaLabels, characterLabels, typeLabels } from "../../data/labels";
+import { areaLabels, characterLabels, layerLabels, typeLabels } from "../../data/labels";
 import type { Spot } from "../../types/spot";
 import type { UserSpotState } from "../../types/userState";
 import { Badge } from "../ui/Badge";
@@ -31,6 +31,8 @@ export function SpotListItem({ spot, state, isSelected, onSelect }: SpotListItem
         </span>
       </div>
       <div className="badge-row">
+        {spot.spotLayer ? <Badge tone="gray">{layerLabels[spot.spotLayer]}</Badge> : null}
+        {spot.isFeatured ? <Badge tone="green">推荐</Badge> : null}
         {spot.characters.slice(0, 4).map((character) => (
           <Badge key={character} tone="blue">
             {characterLabels[character]}

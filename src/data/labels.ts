@@ -1,4 +1,4 @@
-import type { Character, SpotArea, SpotType } from "../types/spot";
+import type { Character, SpotArea, SpotLayer, SpotType } from "../types/spot";
 import type { StatusFilter } from "../utils/filters";
 
 export const areaLabels: Record<SpotArea, string> = {
@@ -43,6 +43,26 @@ export const typeJapaneseLabels: Record<SpotType, string> = {
   restaurant: "飲食",
   transport: "交通",
   other: "その他",
+};
+
+export const layerLabels: Record<SpotLayer, string> = {
+  pilgrimage_core: "巡礼核心",
+  food: "餐饮",
+  shopping: "购物 / 店铺",
+  hotel: "住宿",
+  transport: "交通",
+  scenic: "风景 / 拍照",
+  auxiliary: "辅助地点",
+};
+
+export const layerJapaneseLabels: Record<SpotLayer, string> = {
+  pilgrimage_core: "巡礼コア",
+  food: "飲食",
+  shopping: "ショップ",
+  hotel: "宿泊",
+  transport: "交通",
+  scenic: "風景",
+  auxiliary: "補助スポット",
 };
 
 export const characterLabels: Record<Character, string> = {

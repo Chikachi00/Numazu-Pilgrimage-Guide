@@ -1,4 +1,4 @@
-import { areaLabels, characterLabels, typeLabels } from "../../data/labels";
+import { areaLabels, characterLabels, layerLabels, typeLabels } from "../../data/labels";
 import type { Spot } from "../../types/spot";
 import type { UserSpotState } from "../../types/userState";
 import { getGoogleMapsButtonLabel, getGoogleMapsUrl } from "../../utils/googleMaps";
@@ -58,6 +58,8 @@ export function SpotDetailPanel({
 
       <div className="badge-row">
         <Badge tone="gray">{typeLabels[spot.type]}</Badge>
+        {spot.spotLayer ? <Badge tone="gray">{layerLabels[spot.spotLayer]}</Badge> : null}
+        {spot.isFeatured ? <Badge tone="green">推荐</Badge> : null}
         {spot.characters.map((character) => (
           <Badge key={character} tone="blue">
             {characterLabels[character]}
@@ -79,6 +81,7 @@ export function SpotDetailPanel({
         <p>{isCoordinateVerified ? "坐标已校对" : "坐标待校对，位置可能不准确"}</p>
         {spot.lastVerifiedAt ? <small>最后校对：{spot.lastVerifiedAt}</small> : null}
         {spot.verificationNote ? <small>{spot.verificationNote}</small> : null}
+        {spot.isHiddenByDefault ? <small>默认隐藏，需切换到“全部已校对点”查看。</small> : null}
       </section>
 
       {spot.tags?.length ? (
