@@ -180,4 +180,12 @@ https://www.google.com/maps/place/Toyoko+Inn+Fujisan+Numazu-eki+Kita-guchi+No.2/
 
 google.com/maps/place/Toyoko+Inn+Fujisan+Numazu-eki+Kita-guchi+No.1/@35.1051137,138.8600617,18.75z/data=!4m9!3m8!1s0x60198567b3fc354f:0x69761f131580b679!5m2!4m1!1i2!8m2!3d35.1047675!4d138.8576661!16s%2Fg%2F1thq0s1j?entry=ttu&g_ep=EgoyMDI2MDYwMS4wIKXMDSoASAFQAw%3D%3D
 
+https://www.google.com/maps/place/Yaba+Coffee+Numazu/@35.1008583,138.8590187,18.75z/data=!3m1!5s0x60198560c44d4cc7:0x81abaac0aabd22c6!4m6!3m5!1s0x60198560c44d021b:0x865b6b49b3a64e54!8m2!3d35.1011236!4d138.8582053!16s%2Fg%2F12qg6pq40?entry=ttu&g_ep=EgoyMDI2MDYwMy4xIKXMDSoASAFQAw%3D%3D
+
+https://www.google.com/maps/place/%E8%8F%AF%E5%91%B3%EF%BC%88%E3%83%95%E3%82%A1%E3%83%BC%E3%82%A6%E3%82%A7%E3%82%A4%EF%BC%89/@35.1001541,138.8593885,19z/data=!4m6!3m5!1s0x6019859cfed4111d:0xf4e04cceca504616!8m2!3d35.1000665!4d138.8583123!16s%2Fg%2F11j0tr6d_p?entry=ttu&g_ep=EgoyMDI2MDYwMy4xIKXMDSoASAFQAw%3D%3D
+
+https://www.google.com/maps/place/Shirooka+Shrine/@35.100379,138.8595964,19z/data=!4m6!3m5!1s0x601985609cae32e5:0xc16af2147863aa9e!8m2!3d35.1006946!4d138.8595741!16s%2Fg%2F1tr7jfgr?entry=ttu&g_ep=EgoyMDI2MDYwMy4xIKXMDSoASAFQAw%3D%3D
+
+https://www.google.com/maps/place/Uchiura+Gyokyou+IKESUYA/@35.0264315,138.8947611,15.25z/data=!4m15!1m8!3m7!1s0x60199215184c06c3:0xea412a41a77816d4!2sUchiura+Gyokyou+IKESUYA!8m2!3d35.0265225!4d138.8962124!10e9!16s%2Fg%2F11b807llcp!3m5!1s0x60199215184c06c3:0xea412a41a77816d4!8m2!3d35.0265225!4d138.8962124!16s%2Fg%2F11b807llcp?entry=ttu&g_ep=EgoyMDI2MDYwMy4xIKXMDSoASAFQAw%3D%3D
+
 

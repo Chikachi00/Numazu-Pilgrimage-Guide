@@ -1,8 +1,11 @@
+import { useEffect, useState } from "react";
 import { areaLabels, characterLabels, layerLabels, typeLabels } from "../../data/labels";
 import type { BusinessHours, Spot } from "../../types/spot";
 import type { UserSpotState } from "../../types/userState";
 import { getGoogleMapsButtonLabel, getGoogleMapsUrl } from "../../utils/googleMaps";
+import { getMarkerCategory, markerCategoryLabels } from "../../utils/markerCategory";
 import { Badge } from "../ui/Badge";
+import { Button } from "../ui/Button";
 import { Card } from "../ui/Card";
 import { EmptyState } from "../ui/EmptyState";
 import { SpotStatusButtons } from "./SpotStatusButtons";
@@ -13,19 +16,6 @@ interface SpotDetailPanelProps {
   onToggleVisited: (spotId: string) => void;
   onToggleFavorite: (spotId: string) => void;
   onToggleWishlist: (spotId: string) => void;
-}
-
-function DetailSection({ title, content }: { title: string; content?: string }) {
-  if (!content) {
-    return null;
-  }
-
-  return (
-    <section className="detail-section">
-      <h3>{title}</h3>
-      <p>{content}</p>
-    </section>
-  );
 }
 
 function getSubtitle(spot: Spot) {
@@ -74,8 +64,7 @@ function BusinessHoursSection({ hours }: { hours?: BusinessHours }) {
 
   const weekdayHours = formatWeekdayHours(hours);
   const price = formatPrice(hours);
-  const sourceLabel =
-    hours.source === "numazu_pdf" ? "用户整理 PDF 参考表" : "用户整理参考表";
+  const sourceLabel = hours.source === "numazu_pdf" ? "用户整理 PDF 参考表" : "用户整理参考表";
 
   return (
     <section className="detail-section business-hours-box">
@@ -126,6 +115,75 @@ function BusinessHoursSection({ hours }: { hours?: BusinessHours }) {
   );
 }
 
+function getSpotNoteKey(spotId: string) {
+  return `numazu-spot-note:${spotId}`;
+}
+
+function SpotNoteEditor({ spotId }: { spotId: string }) {
+  const [draftNote, setDraftNote] = useState("");
+  const [savedNote, setSavedNote] = useState("");
+
+  useEffect(() => {
+    try {
+      const storedNote = window.localStorage.getItem(getSpotNoteKey(spotId)) ?? "";
+      setDraftNote(storedNote);
+      setSavedNote(storedNote);
+    } catch {
+      setDraftNote("");
+      setSavedNote("");
+    }
+  }, [spotId]);
+
+  function handleSave() {
+    try {
+      const nextNote = draftNote.trim();
+      if (nextNote) {
+        window.localStorage.setItem(getSpotNoteKey(spotId), nextNote);
+      } else {
+        window.localStorage.removeItem(getSpotNoteKey(spotId));
+      }
+      setDraftNote(nextNote);
+      setSavedNote(nextNote);
+    } catch {
+      // localStorage may be unavailable in restricted browsing modes.
+    }
+  }
+
+  function handleClear() {
+    try {
+      window.localStorage.removeItem(getSpotNoteKey(spotId));
+    } catch {
+      // localStorage may be unavailable in restricted browsing modes.
+    }
+    setDraftNote("");
+    setSavedNote("");
+  }
+
+  return (
+    <section className="detail-section user-note-box">
+      <div className="section-heading-row">
+        <h3>我的备注</h3>
+        {savedNote ? <Badge tone="green">已保存</Badge> : null}
+      </div>
+      <textarea
+        value={draftNote}
+        onChange={(event) => setDraftNote(event.target.value)}
+        placeholder="写下这个地点的备注、巡礼计划或打卡感想……"
+        rows={5}
+      />
+      <div className="note-actions">
+        <Button variant="primary" onClick={handleSave}>
+          保存备注
+        </Button>
+        <Button variant="ghost" onClick={handleClear}>
+          清空
+        </Button>
+      </div>
+      <small>备注只保存在本机 localStorage，不会上传云端。</small>
+    </section>
+  );
+}
+
 export function SpotDetailPanel({
   spot,
   state,
@@ -136,7 +194,7 @@ export function SpotDetailPanel({
   if (!spot || !state) {
     return (
       <Card className="detail-panel">
-        <EmptyState title="请选择一个点位" description="点击地图 marker 或左侧列表查看详情。" />
+        <EmptyState title="请选择一个点位" description="点击地图 marker 或点位列表查看详情。" />
       </Card>
     );
   }
@@ -144,6 +202,7 @@ export function SpotDetailPanel({
   const googleMapsUrl = getGoogleMapsUrl(spot);
   const isCoordinateVerified = spot.coordinateStatus === "verified";
   const subtitle = getSubtitle(spot);
+  const markerCategory = getMarkerCategory(spot);
 
   return (
     <Card className="detail-panel">
@@ -158,6 +217,7 @@ export function SpotDetailPanel({
       <div className="badge-row">
         <Badge tone="gray">{typeLabels[spot.type]}</Badge>
         {spot.spotLayer ? <Badge tone="gray">{layerLabels[spot.spotLayer]}</Badge> : null}
+        <Badge tone="blue">{markerCategoryLabels[markerCategory]}</Badge>
         {spot.isFeatured ? <Badge tone="green">推荐</Badge> : null}
         {spot.characters.map((character) => (
           <Badge key={character} tone="blue">
@@ -166,36 +226,8 @@ export function SpotDetailPanel({
         ))}
       </div>
 
-      <DetailSection title="简介" content={spot.description.zh} />
-      <DetailSection title="巡礼提示" content={spot.pilgrimageNote?.zh} />
-      <DetailSection title="交通建议" content={spot.accessNote?.zh} />
-      <DetailSection title="拍照提示" content={spot.photoTip?.zh} />
-
       {spot.recommendedDurationMinutes ? (
-        <div className="duration-box">推荐停留时间：约 {spot.recommendedDurationMinutes} 分钟</div>
-      ) : null}
-
-      <BusinessHoursSection hours={spot.businessHours} />
-
-      <section className="detail-section coordinate-status-box">
-        <h3>坐标状态</h3>
-        <p>{isCoordinateVerified ? "坐标已校对" : "坐标待校对，位置可能不准确"}</p>
-        {spot.lastVerifiedAt ? <small>最后校对：{spot.lastVerifiedAt}</small> : null}
-        {spot.verificationNote ? <small>{spot.verificationNote}</small> : null}
-        {spot.isHiddenByDefault ? <small>默认隐藏，需切换到“全部已校对点”查看。</small> : null}
-      </section>
-
-      {spot.tags?.length ? (
-        <section className="detail-section">
-          <h3>标签</h3>
-          <div className="badge-row">
-            {spot.tags.map((tag) => (
-              <Badge key={tag} tone="gray">
-                #{tag}
-              </Badge>
-            ))}
-          </div>
-        </section>
+        <div className="duration-box">建议预留：约 {spot.recommendedDurationMinutes} 分钟</div>
       ) : null}
 
       <div className="detail-actions">
@@ -211,6 +243,30 @@ export function SpotDetailPanel({
           onToggleWishlist={() => onToggleWishlist(spot.id)}
         />
       </div>
+
+      <BusinessHoursSection hours={spot.businessHours} />
+      <SpotNoteEditor spotId={spot.id} />
+
+      {spot.tags?.length ? (
+        <section className="detail-section compact-tags">
+          <h3>标签</h3>
+          <div className="badge-row">
+            {spot.tags.map((tag) => (
+              <Badge key={tag} tone="gray">
+                #{tag}
+              </Badge>
+            ))}
+          </div>
+        </section>
+      ) : null}
+
+      <section className="detail-section coordinate-status-box">
+        <h3>坐标状态</h3>
+        <p>{isCoordinateVerified ? "坐标已校对" : "坐标待校对，位置可能不准确"}</p>
+        {spot.lastVerifiedAt ? <small>最后校对：{spot.lastVerifiedAt}</small> : null}
+        {spot.verificationNote ? <small>{spot.verificationNote}</small> : null}
+        {spot.isHiddenByDefault ? <small>默认隐藏，需切换到“全部已校对点”查看。</small> : null}
+      </section>
     </Card>
   );
 }

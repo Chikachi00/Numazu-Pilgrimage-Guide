@@ -576,7 +576,9 @@ a {
   right: 0;
   display: grid;
   gap: 6px;
-  min-width: 180px;
+  width: min(360px, calc(100vw - 36px));
+  max-height: min(68vh, 560px);
+  overflow: auto;
   border: 1px solid var(--line);
   border-radius: 12px;
   padding: 10px;
@@ -605,144 +607,198 @@ a {
   background: var(--sea-100);
 }
 
+.marker-mode-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 6px;
+}
+
+.marker-custom-grid {
+  display: grid;
+  gap: 8px;
+}
+
+.marker-custom-row {
+  display: grid;
+  grid-template-columns: 1fr minmax(120px, 150px);
+  align-items: center;
+  gap: 10px;
+  color: var(--sea-900);
+  font-size: 0.86rem;
+  font-weight: 800;
+}
+
+.marker-custom-row select {
+  min-width: 0;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  padding: 7px 8px;
+  color: var(--sea-900);
+  background: #ffffff;
+}
+
+.marker-menu-note {
+  margin: 4px 0 0;
+  color: var(--muted);
+  font-size: 0.84rem;
+  line-height: 1.5;
+}
+
+.marker-reset-button {
+  justify-self: start;
+}
+
 .spot-div-marker {
-  --marker-color: var(--sea-700);
-  --marker-accent: #ffffff;
+  --marker-color: #60717f;
   position: relative;
   display: grid;
-  width: 34px;
-  height: 34px;
+  width: 30px;
+  height: 36px;
+  place-items: center;
+  color: #ffffff;
+  transition: transform 140ms ease, box-shadow 140ms ease, opacity 140ms ease;
+}
+
+.marker-pin {
+  position: relative;
+  display: grid;
+  width: 28px;
+  height: 28px;
   place-items: center;
   border: 2px solid #ffffff;
-  border-radius: 999px 999px 999px 5px;
-  color: #ffffff;
+  border-radius: 999px 999px 999px 6px;
   background: var(--marker-color);
-  box-shadow: 0 8px 20px rgba(21, 50, 68, 0.28);
-  font-size: 0.8rem;
-  font-weight: 900;
+  box-shadow: 0 8px 20px rgba(21, 50, 68, 0.26);
   transform: rotate(-45deg);
-  transform-origin: 50% 50%;
-  transition:
-    transform 140ms ease,
-    box-shadow 140ms ease,
-    opacity 140ms ease;
+}
+
+.marker-pin::after {
+  position: absolute;
+  right: 4px;
+  bottom: 4px;
+  width: 7px;
+  height: 7px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.28);
+  content: "";
 }
 
 .spot-div-marker .marker-core {
   display: grid;
-  width: 22px;
-  height: 22px;
+  width: 18px;
+  height: 18px;
   place-items: center;
-  border-radius: 999px;
-  background: rgba(255, 255, 255, 0.18);
   transform: rotate(45deg);
+}
+
+.marker-core svg {
+  width: 17px;
+  height: 17px;
 }
 
 .spot-div-marker.is-selected {
   z-index: 2;
-  box-shadow:
-    0 0 0 5px rgba(42, 168, 200, 0.22),
-    0 14px 28px rgba(21, 50, 68, 0.32);
-  transform: rotate(-45deg) scale(1.22);
+  transform: translateY(-4px) scale(1.18);
 }
 
-.spot-div-marker.is-featured::after {
+.spot-div-marker.is-selected .marker-pin {
+  box-shadow: 0 0 0 6px rgba(42, 168, 200, 0.22), 0 14px 28px rgba(21, 50, 68, 0.32);
+}
+
+.marker-badge {
   position: absolute;
-  top: -9px;
-  right: -7px;
-  content: "★";
-  color: #f5bd32;
-  filter: drop-shadow(0 2px 3px rgba(21, 50, 68, 0.22));
-  font-size: 0.72rem;
+  display: grid;
+  width: 13px;
+  height: 13px;
+  place-items: center;
+  border: 1px solid #ffffff;
+  border-radius: 999px;
+  color: #ffffff;
+  font-size: 0.56rem;
+  font-weight: 900;
+  line-height: 1;
   transform: rotate(45deg);
 }
 
-.spot-div-marker.is-visited {
-  opacity: 0.78;
+.marker-badge-visited {
+  right: -5px;
+  bottom: -2px;
+  background: var(--green);
 }
 
-.spot-div-marker.is-favorite {
+.marker-badge-favorite {
+  top: -6px;
+  right: -5px;
+  background: var(--pink);
+}
+
+.marker-badge-wishlist {
+  bottom: -5px;
+  left: -4px;
+  background: var(--amber);
+}
+
+.marker-badge-featured {
+  top: -6px;
+  left: -4px;
+  background: #f5bd32;
+}
+
+.spot-div-marker.is-visited {
+  opacity: 0.82;
+}
+
+.spot-div-marker.is-favorite .marker-pin {
   border-color: #ffe0ed;
 }
 
-.spot-div-marker.is-wishlist {
+.spot-div-marker.is-wishlist .marker-pin {
   border-color: #fff0c7;
 }
 
-.layer-pilgrimage {
-  --marker-color: #1f6f8b;
-}
-
-.layer-food {
+.marker-category-restaurant {
   --marker-color: #e07a2f;
 }
 
-.layer-shopping {
+.marker-category-cafe {
+  --marker-color: #b7743a;
+}
+
+.marker-category-shop,
+.marker-category-anime {
   --marker-color: #c35fa1;
 }
 
-.layer-hotel {
+.marker-category-hotel {
   --marker-color: #496b8f;
 }
 
-.layer-transport {
+.marker-category-transport,
+.marker-category-info {
   --marker-color: #209c92;
 }
 
-.layer-scenic {
+.marker-category-park,
+.marker-category-scenic {
   --marker-color: #2a9d73;
 }
 
-.layer-auxiliary {
+.marker-category-shrine,
+.marker-category-museum {
+  --marker-color: #8062ad;
+}
+
+.marker-category-beach,
+.marker-category-aquarium {
+  --marker-color: #1f8eb3;
+}
+
+.marker-category-onsen {
+  --marker-color: #cf6b6b;
+}
+
+.marker-category-generic {
   --marker-color: #7d8a94;
-}
-
-.marker-style-minimal_dot {
-  width: 18px;
-  height: 18px;
-  border-radius: 999px;
-  transform: none;
-}
-
-.marker-style-minimal_dot .marker-core {
-  width: 8px;
-  height: 8px;
-  background: #ffffff;
-  color: transparent;
-  transform: none;
-}
-
-.marker-style-minimal_dot.is-selected {
-  transform: scale(1.35);
-}
-
-.marker-style-numbered {
-  border-radius: 999px;
-  transform: none;
-}
-
-.marker-style-numbered .marker-core {
-  background: transparent;
-  transform: none;
-}
-
-.marker-style-numbered.is-selected {
-  transform: scale(1.22);
-}
-
-.marker-style-aqours_inspired {
-  --marker-color: #18a6c8;
-  border-color: #ffffff;
-  background: linear-gradient(145deg, #18a6c8, #1f6f8b 55%, #f4a23a);
-}
-
-.marker-style-aqours_inspired .marker-core {
-  background: rgba(255, 255, 255, 0.92);
-  color: #1f6f8b;
-}
-
-.marker-style-aqours_inspired.is-visited .marker-core {
-  color: #2a9d73;
 }
 
 .marker-popup {
@@ -783,16 +839,20 @@ a {
   border-radius: 999px;
 }
 
-.legend-priority-1 {
-  background: var(--sea-700);
+.legend-food {
+  background: #e07a2f;
 }
 
-.legend-priority-2 {
-  background: var(--sea-500);
+.legend-shop {
+  background: #c35fa1;
 }
 
-.legend-priority-3 {
-  background: var(--amber);
+.legend-scenic {
+  background: #2a9d73;
+}
+
+.legend-hotel {
+  background: #496b8f;
 }
 
 .detail-panel {
@@ -854,6 +914,54 @@ a {
   margin-top: 8px;
   color: var(--muted);
   line-height: 1.5;
+}
+
+.user-note-box {
+  display: grid;
+  gap: 10px;
+}
+
+.section-heading-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+}
+
+.section-heading-row h3 {
+  margin: 0;
+}
+
+.user-note-box textarea {
+  width: 100%;
+  resize: vertical;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  padding: 11px 12px;
+  color: var(--sea-900);
+  background: #f8fdff;
+  line-height: 1.55;
+  outline: none;
+}
+
+.user-note-box textarea:focus {
+  border-color: var(--sea-500);
+  box-shadow: 0 0 0 3px rgba(42, 168, 200, 0.14);
+}
+
+.note-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.user-note-box small {
+  color: var(--muted);
+}
+
+.compact-tags {
+  border-top: 1px solid var(--line);
+  padding-top: 12px;
 }
 
 .coordinate-status-box {

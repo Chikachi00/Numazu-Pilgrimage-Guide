@@ -8,6 +8,7 @@ import {
 } from "../data/labels";
 import type { Character, Spot, SpotArea, SpotLayer, SpotType } from "../types/spot";
 import type { UserSpotStateMap } from "../types/userState";
+import { getMarkerCategory, markerCategoryLabels } from "./markerCategory";
 
 export type StatusFilter = "all" | "visited" | "unvisited" | "favorite" | "wishlist";
 export type SpotVisibilityMode = "featured" | "all_verified" | "all";
@@ -43,6 +44,16 @@ function matchesSearch(spot: Spot, query: string): boolean {
     return true;
   }
 
+  const markerCategory = getMarkerCategory(spot);
+  let userNote = "";
+
+  try {
+    userNote =
+      typeof window === "undefined" ? "" : window.localStorage.getItem(`numazu-spot-note:${spot.id}`) ?? "";
+  } catch {
+    userNote = "";
+  }
+
   const searchFields = [
     spot.name.zh,
     spot.name.ja,
@@ -56,6 +67,9 @@ function matchesSearch(spot: Spot, query: string): boolean {
     typeJapaneseLabels[spot.type],
     spot.spotLayer ? layerLabels[spot.spotLayer] : undefined,
     spot.spotLayer ? layerJapaneseLabels[spot.spotLayer] : undefined,
+    markerCategoryLabels[markerCategory],
+    markerCategory,
+    userNote,
     spot.businessHours?.weekdayOpen,
     spot.businessHours?.weekdayClose,
     spot.businessHours?.weekendHours,

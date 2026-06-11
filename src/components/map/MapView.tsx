@@ -4,7 +4,7 @@ import { MapContainer, TileLayer, useMap, ZoomControl } from "react-leaflet";
 import markerIcon2x from "leaflet/dist/images/marker-icon-2x.png";
 import markerIcon from "leaflet/dist/images/marker-icon.png";
 import markerShadow from "leaflet/dist/images/marker-shadow.png";
-import type { MarkerStyleMode } from "../../types/map";
+import type { MarkerCategoryOverrides, MarkerMode } from "../../types/map";
 import type { Spot } from "../../types/spot";
 import type { UserSpotState } from "../../types/userState";
 import { hasVerifiedGoogleMapsCoordinate } from "../../utils/googleMaps";
@@ -39,7 +39,8 @@ interface MapViewProps {
   spots: Spot[];
   selectedSpot?: Spot;
   selectedSpotId?: string;
-  markerStyleMode: MarkerStyleMode;
+  markerMode: MarkerMode;
+  markerCategoryOverrides: MarkerCategoryOverrides;
   getSpotState: (spotId: string) => UserSpotState;
   onSelectSpot: (spotId: string) => void;
 }
@@ -48,7 +49,8 @@ export function MapView({
   spots,
   selectedSpot,
   selectedSpotId,
-  markerStyleMode,
+  markerMode,
+  markerCategoryOverrides,
   getSpotState,
   onSelectSpot,
 }: MapViewProps) {
@@ -63,13 +65,13 @@ export function MapView({
           url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
         />
         <MapPanTo spot={selectedSpot} />
-        {markerSpots.map((spot, index) => (
+        {markerSpots.map((spot) => (
           <SpotMarker
             key={spot.id}
             spot={spot}
-            index={index}
             isSelected={selectedSpotId === spot.id}
-            markerStyleMode={markerStyleMode}
+            markerMode={markerMode}
+            markerCategoryOverrides={markerCategoryOverrides}
             state={getSpotState(spot.id)}
             onSelect={onSelectSpot}
           />

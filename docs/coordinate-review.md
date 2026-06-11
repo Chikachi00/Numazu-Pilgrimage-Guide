@@ -1,9 +1,7 @@
 # Coordinate Review Checklist
 
-There are currently no formal `needs_review` spots in `src/data/spots.ts`.
+All formal spots in `src/data/spots.ts` are currently verified from user-provided Google Maps place URLs in `docs/reference/location.md`.
 
-All official spots now come from user-provided Google Maps place URLs in `docs/reference/location.md` and are stored as verified Google Maps place URL coordinates.
+Remaining formal `needs_review` spots: 0
 
-Latest sync checked 90 place URLs, parsed 90, and kept the formal dataset at 89 verified spots.
-
-To add a future spot, first provide a Google Maps place URL, then import it as a verified coordinate.
+Historical unverified spots are not kept in the formal spot dataset. To add a future spot, first provide a full Google Maps place URL in `docs/reference/location.md`, then import it as a verified coordinate.

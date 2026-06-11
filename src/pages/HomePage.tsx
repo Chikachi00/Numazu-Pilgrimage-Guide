@@ -14,7 +14,7 @@ import { spots } from "../data/spots";
 import { useLocalStorage } from "../hooks/useLocalStorage";
 import { useSpotFilters } from "../hooks/useSpotFilters";
 import { useSpotStates } from "../hooks/useSpotStates";
-import type { MarkerStyleMode } from "../types/map";
+import type { MarkerCategory, MarkerCategoryOverrides, MarkerIconName, MarkerMode } from "../types/map";
 import { filterSpots } from "../utils/filters";
 import { STORAGE_KEYS } from "../utils/storage";
 
@@ -50,10 +50,15 @@ export function HomePage({ currentPage, onNavigate }: HomePageProps) {
   const [isListOpen, setIsListOpen] = useState(false);
   const [isDetailOpen, setIsDetailOpen] = useState(Boolean(hashSpotId));
   const [isMarkerStyleOpen, setIsMarkerStyleOpen] = useState(false);
-  const [markerStyleMode, setMarkerStyleMode] = useLocalStorage<MarkerStyleMode>(
-    STORAGE_KEYS.markerStyleMode,
-    "aqours_inspired",
+  const [storedMarkerMode, setStoredMarkerMode] = useLocalStorage<MarkerMode | string>(
+    STORAGE_KEYS.markerMode,
+    "category_icon",
   );
+  const [markerCategoryOverrides, setMarkerCategoryOverrides] = useLocalStorage<MarkerCategoryOverrides>(
+    STORAGE_KEYS.markerCategoryOverrides,
+    {},
+  );
+  const markerMode: MarkerMode = storedMarkerMode === "custom_icon" ? "custom_icon" : "category_icon";
   const {
     filters,
     setQuery,
@@ -101,6 +106,12 @@ export function HomePage({ currentPage, onNavigate }: HomePageProps) {
     window.addEventListener("keydown", handleKeyDown);
     return () => window.removeEventListener("keydown", handleKeyDown);
   }, [isDetailOpen, isFilterOpen, isListOpen, isMarkerStyleOpen]);
+
+  useEffect(() => {
+    if (storedMarkerMode !== markerMode) {
+      setStoredMarkerMode(markerMode);
+    }
+  }, [markerMode, setStoredMarkerMode, storedMarkerMode]);
 
   function handleSelectSpot(spotId: string) {
     setSelectedSpotId(spotId);
@@ -174,7 +185,8 @@ export function HomePage({ currentPage, onNavigate }: HomePageProps) {
           spots={filteredSpots}
           selectedSpot={selectedSpot}
           selectedSpotId={selectedSpotId}
-          markerStyleMode={markerStyleMode}
+          markerMode={markerMode}
+          markerCategoryOverrides={markerCategoryOverrides}
           getSpotState={getSpotState}
           onSelectSpot={handleSelectSpot}
         />
@@ -190,13 +202,17 @@ export function HomePage({ currentPage, onNavigate }: HomePageProps) {
 
         <div className="map-floating-controls map-floating-controls-right">
           <MarkerStyleControl
-            value={markerStyleMode}
+            mode={markerMode}
+            categoryOverrides={markerCategoryOverrides}
             isOpen={isMarkerStyleOpen}
             onToggleOpen={() => setIsMarkerStyleOpen((current) => !current)}
-            onChange={(value) => {
-              setMarkerStyleMode(value);
-              setIsMarkerStyleOpen(false);
+            onModeChange={(value) => {
+              setStoredMarkerMode(value);
             }}
+            onCategoryIconChange={(category: MarkerCategory, icon: MarkerIconName) => {
+              setMarkerCategoryOverrides((current) => ({ ...current, [category]: icon }));
+            }}
+            onReset={() => setMarkerCategoryOverrides({})}
           />
         </div>
 

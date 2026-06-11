@@ -1,3 +1,4 @@
+
 export interface VerifiedGoogleMapLink {
   id: string;
   displayName: string;
@@ -7,9 +8,8 @@ export interface VerifiedGoogleMapLink {
   longitude: number;
   parsedSource: "place_3d_4d" | "at_lat_lng";
 }
-
 export const verifiedGoogleMapLinks: VerifiedGoogleMapLink[] = [
-  {
+{
     id: "mission-bay",
     displayName: "Mission Bay",
     decodedName: "Mission Bay",
@@ -18,7 +18,7 @@ export const verifiedGoogleMapLinks: VerifiedGoogleMapLink[] = [
     longitude: 138.8650351,
     parsedSource: "place_3d_4d",
   },
-  {
+{
     id: "麺奏-弥栄",
     displayName: "麺奏 弥栄",
     decodedName: "麺奏 弥栄",
@@ -27,7 +27,7 @@ export const verifiedGoogleMapLinks: VerifiedGoogleMapLink[] = [
     longitude: 138.8639337,
     parsedSource: "place_3d_4d",
   },
-  {
+{
     id: "浅間神社",
     displayName: "浅間神社",
     decodedName: "浅間神社",
@@ -36,7 +36,7 @@ export const verifiedGoogleMapLinks: VerifiedGoogleMapLink[] = [
     longitude: 138.8729096,
     parsedSource: "place_3d_4d",
   },
-  {
+{
     id: "kochoji",
     displayName: "Kochoji",
     decodedName: "Kochoji",
@@ -45,7 +45,7 @@ export const verifiedGoogleMapLinks: VerifiedGoogleMapLink[] = [
     longitude: 138.8740756,
     parsedSource: "place_3d_4d",
   },
-  {
+{
     id: "moroguchi-shrine",
     displayName: "Moroguchi Shrine",
     decodedName: "Moroguchi Shrine",
@@ -54,7 +54,7 @@ export const verifiedGoogleMapLinks: VerifiedGoogleMapLink[] = [
     longitude: 138.7670119,
     parsedSource: "place_3d_4d",
   },
-  {
+{
     id: "jolie-ange",
     displayName: "Jolie Ange",
     decodedName: "Jolie Ange",
@@ -63,7 +63,7 @@ export const verifiedGoogleMapLinks: VerifiedGoogleMapLink[] = [
     longitude: 138.8593512,
     parsedSource: "place_3d_4d",
   },
-  {
+{
     id: "ja-fujiizu-kanaokasanchokushi",
     displayName: "JA Fujiizu Kanaokasanchokushi",
     decodedName: "JA Fujiizu Kanaokasanchokushi",
@@ -72,7 +72,7 @@ export const verifiedGoogleMapLinks: VerifiedGoogleMapLink[] = [
     longitude: 138.8600411,
     parsedSource: "place_3d_4d",
   },
-  {
+{
     id: "mihama-beach",
     displayName: "Mihama Beach",
     decodedName: "Mihama Beach",
@@ -81,7 +81,7 @@ export const verifiedGoogleMapLinks: VerifiedGoogleMapLink[] = [
     longitude: 138.7641746,
     parsedSource: "place_3d_4d",
   },
-  {
+{
     id: "煌めきの丘",
     displayName: "煌めきの丘",
     decodedName: "煌めきの丘",
@@ -90,7 +90,7 @@ export const verifiedGoogleMapLinks: VerifiedGoogleMapLink[] = [
     longitude: 138.7790288,
     parsedSource: "place_3d_4d",
   },
-  {
+{
     id: "amimoto-mitsutokumaru-restaurant",
     displayName: "Amimoto Mitsutokumaru Restaurant",
     decodedName: "Amimoto Mitsutokumaru Restaurant",
@@ -99,7 +99,7 @@ export const verifiedGoogleMapLinks: VerifiedGoogleMapLink[] = [
     longitude: 138.777471,
     parsedSource: "place_3d_4d",
   },
-  {
+{
     id: "くるら戸田-壱の湯",
     displayName: "くるら戸田 壱の湯",
     decodedName: "くるら戸田 壱の湯",
@@ -108,7 +108,7 @@ export const verifiedGoogleMapLinks: VerifiedGoogleMapLink[] = [
     longitude: 138.7866968,
     parsedSource: "place_3d_4d",
   },
-  {
+{
     id: "osezaki-lighthouse",
     displayName: "Osezaki Lighthouse",
     decodedName: "Osezaki Lighthouse",
@@ -117,7 +117,7 @@ export const verifiedGoogleMapLinks: VerifiedGoogleMapLink[] = [
     longitude: 138.788124,
     parsedSource: "place_3d_4d",
   },
-  {
+{
     id: "deai-cape",
     displayName: "Deai Cape",
     decodedName: "Deai Cape",
@@ -126,7 +126,7 @@ export const verifiedGoogleMapLinks: VerifiedGoogleMapLink[] = [
     longitude: 138.769168,
     parsedSource: "place_3d_4d",
   },
-  {
+{
     id: "ramen-hyaku-shiki",
     displayName: "Ramen hyaku-shiki",
     decodedName: "Ramen hyaku-shiki",
@@ -135,7 +135,7 @@ export const verifiedGoogleMapLinks: VerifiedGoogleMapLink[] = [
     longitude: 138.858767,
     parsedSource: "place_3d_4d",
   },
-  {
+{
     id: "千楽北口店",
     displayName: "千楽北口店",
     decodedName: "千楽北口店",
@@ -144,7 +144,7 @@ export const verifiedGoogleMapLinks: VerifiedGoogleMapLink[] = [
     longitude: 138.859259,
     parsedSource: "place_3d_4d",
   },
-  {
+{
     id: "uogashizushi-numazu-shop",
     displayName: "UOGASHIZUSHI Numazu Shop",
     decodedName: "UOGASHIZUSHI Numazu Shop",
@@ -153,8 +153,8 @@ export const verifiedGoogleMapLinks: VerifiedGoogleMapLink[] = [
     longitude: 138.8583786,
     parsedSource: "place_3d_4d",
   },
-  {
-    id: "そよかぜ",
+{
+    id: "そよかぜ",
     displayName: "そよかぜ",
     decodedName: "そよかぜ",
     url: "https://www.google.com/maps/place/%E3%81%9D%E3%82%88%E3%81%8B%E3%81%9C/@35.1074915,138.8407426,15z/data=!3m1!5s0x6019856890f271d1:0xad1f0e2d4a8e7d89!4m10!1m3!11m2!2sX9lQrBc1IDecFniLM1jBfUrSlDUgTA!3e3!3m5!1s0x60198509b5fe12b5:0xfe36366a05a9adc0!8m2!3d35.1064307!4d138.8565537!16s%2Fg%2F11vqp8n_yn?entry=ttu&g_ep=EgoyMDI2MDYwMy4xIKXMDSoASAFQAw%3D%3D",
@@ -162,7 +162,7 @@ export const verifiedGoogleMapLinks: VerifiedGoogleMapLink[] = [
     longitude: 138.8565537,
     parsedSource: "place_3d_4d",
   },
-  {
+{
     id: "coffee-sakura",
     displayName: "COFFEE SAKURA",
     decodedName: "COFFEE SAKURA",
@@ -171,8 +171,8 @@ export const verifiedGoogleMapLinks: VerifiedGoogleMapLink[] = [
     longitude: 138.8515255,
     parsedSource: "place_3d_4d",
   },
-  {
-    id: "grandma-シーサイド店",
+{
+    id: "grandma-シーサイド店",
     displayName: "Grandma シーサイド店",
     decodedName: "Grandma シーサイド店",
     url: "https://www.google.com/maps/place/Grandma+%E3%82%B7%E3%83%BC%E3%82%B5%E3%82%A4%E3%83%89%E5%BA%97/@35.0481791,138.8679989,15z/data=!4m10!1m3!11m2!2sX9lQrBc1IDecFniLM1jBfUrSlDUgTA!3e3!3m5!1s0x60199181eaee7adb:0x3274289c6957a05!8m2!3d35.0481791!4d138.8860233!16s%2Fg%2F11j65j6ndk?entry=ttu&g_ep=EgoyMDI2MDYwMy4xIKXMDSoASAFQAw%3D%3D",
@@ -180,7 +180,7 @@ export const verifiedGoogleMapLinks: VerifiedGoogleMapLink[] = [
     longitude: 138.8860233,
     parsedSource: "place_3d_4d",
   },
-  {
+{
     id: "大瀬神社",
     displayName: "大瀬神社",
     decodedName: "大瀬神社",
@@ -189,7 +189,7 @@ export const verifiedGoogleMapLinks: VerifiedGoogleMapLink[] = [
     longitude: 138.786502,
     parsedSource: "place_3d_4d",
   },
-  {
+{
     id: "italian-kitchen-vansan-numazu",
     displayName: "Italian Kitchen VANSAN Numazu",
     decodedName: "Italian Kitchen VANSAN Numazu",
@@ -198,7 +198,7 @@ export const verifiedGoogleMapLinks: VerifiedGoogleMapLink[] = [
     longitude: 138.8606476,
     parsedSource: "place_3d_4d",
   },
-  {
+{
     id: "冨久家-沼津ケーキ店",
     displayName: "冨久家 沼津ケーキ店",
     decodedName: "冨久家 沼津ケーキ店",
@@ -207,8 +207,8 @@ export const verifiedGoogleMapLinks: VerifiedGoogleMapLink[] = [
     longitude: 138.863367,
     parsedSource: "place_3d_4d",
   },
-  {
-    id: "shofuku-ramen-main-store",
+{
+    id: "shōfuku-ramen-main-store",
     displayName: "Shōfuku Ramen Main Store",
     decodedName: "Shōfuku Ramen Main Store",
     url: "https://www.google.com/maps/place/Sh%C5%8Dfuku+Ramen+Main+Store/@35.1020506,138.8426232,15z/data=!4m10!1m3!11m2!2sX9lQrBc1IDecFniLM1jBfUrSlDUgTA!3e3!3m5!1s0x60198f93131a24cd:0x9daf6ff82c8ee187!8m2!3d35.0847957!4d138.8582828!16s%2Fg%2F1vkxm9m3?entry=ttu&g_ep=EgoyMDI2MDYwMy4xIKXMDSoASAFQAw%3D%3D",
@@ -216,7 +216,7 @@ export const verifiedGoogleMapLinks: VerifiedGoogleMapLink[] = [
     longitude: 138.8582828,
     parsedSource: "place_3d_4d",
   },
-  {
+{
     id: "donguri",
     displayName: "Donguri",
     decodedName: "Donguri",
@@ -225,7 +225,7 @@ export const verifiedGoogleMapLinks: VerifiedGoogleMapLink[] = [
     longitude: 138.8580007,
     parsedSource: "place_3d_4d",
   },
-  {
+{
     id: "todanittaumebayashi-park",
     displayName: "Todanittaumebayashi Park",
     decodedName: "Todanittaumebayashi Park",
@@ -234,7 +234,7 @@ export const verifiedGoogleMapLinks: VerifiedGoogleMapLink[] = [
     longitude: 138.8155435,
     parsedSource: "place_3d_4d",
   },
-  {
+{
     id: "heda-fishing-port",
     displayName: "Heda Fishing Port",
     decodedName: "Heda Fishing Port",
@@ -243,7 +243,7 @@ export const verifiedGoogleMapLinks: VerifiedGoogleMapLink[] = [
     longitude: 138.7764437,
     parsedSource: "place_3d_4d",
   },
-  {
+{
     id: "渡辺商店",
     displayName: "渡辺商店",
     decodedName: "渡辺商店",
@@ -252,7 +252,7 @@ export const verifiedGoogleMapLinks: VerifiedGoogleMapLink[] = [
     longitude: 138.8523847,
     parsedSource: "place_3d_4d",
   },
-  {
+{
     id: "spice-magic",
     displayName: "Spice magic",
     decodedName: "Spice magic",
@@ -261,7 +261,7 @@ export const verifiedGoogleMapLinks: VerifiedGoogleMapLink[] = [
     longitude: 138.859128,
     parsedSource: "place_3d_4d",
   },
-  {
+{
     id: "miyakoan",
     displayName: "Miyakoan",
     decodedName: "Miyakoan",
@@ -270,7 +270,7 @@ export const verifiedGoogleMapLinks: VerifiedGoogleMapLink[] = [
     longitude: 138.8523014,
     parsedSource: "place_3d_4d",
   },
-  {
+{
     id: "駿河の湯-坂口屋",
     displayName: "駿河の湯 坂口屋",
     decodedName: "駿河の湯 坂口屋",
@@ -279,7 +279,7 @@ export const verifiedGoogleMapLinks: VerifiedGoogleMapLink[] = [
     longitude: 138.868794,
     parsedSource: "place_3d_4d",
   },
-  {
+{
     id: "田口音楽教室",
     displayName: "田口音楽教室",
     decodedName: "田口音楽教室",
@@ -288,8 +288,8 @@ export const verifiedGoogleMapLinks: VerifiedGoogleMapLink[] = [
     longitude: 138.8552688,
     parsedSource: "place_3d_4d",
   },
-  {
-    id: "御食事処・仕出し弁当-浜忠",
+{
+    id: "御食事処-仕出し弁当-浜忠",
     displayName: "御食事処・仕出し弁当 ｢浜忠｣",
     decodedName: "御食事処・仕出し弁当 ｢浜忠｣",
     url: "https://www.google.com/maps/place/%E5%BE%A1%E9%A3%9F%E4%BA%8B%E5%87%A6%E3%83%BB%E4%BB%95%E5%87%BA%E3%81%97%E5%BC%81%E5%BD%93+%EF%BD%A2%E6%B5%9C%E5%BF%A0%EF%BD%A3/@35.1007328,138.839124,15z/data=!4m10!1m3!11m2!2sX9lQrBc1IDecFniLM1jBfUrSlDUgTA!3e3!3m5!1s0x601985603bde9a59:0xd65dd67f8840274d!8m2!3d35.0981608!4d138.8583191!16s%2Fg%2F1ptxv8g46?entry=ttu&g_ep=EgoyMDI2MDYwMy4xIKXMDSoASAFQAw%3D%3D",
@@ -297,7 +297,7 @@ export const verifiedGoogleMapLinks: VerifiedGoogleMapLink[] = [
     longitude: 138.8583191,
     parsedSource: "place_3d_4d",
   },
-  {
+{
     id: "sanco-inn-numazu-ekimae",
     displayName: "Sanco Inn Numazu Ekimae",
     decodedName: "Sanco Inn Numazu Ekimae",
@@ -306,7 +306,7 @@ export const verifiedGoogleMapLinks: VerifiedGoogleMapLink[] = [
     longitude: 138.858776,
     parsedSource: "place_3d_4d",
   },
-  {
+{
     id: "happy-fine",
     displayName: "Happy Fine",
     decodedName: "Happy Fine",
@@ -315,7 +315,7 @@ export const verifiedGoogleMapLinks: VerifiedGoogleMapLink[] = [
     longitude: 138.8594424,
     parsedSource: "place_3d_4d",
   },
-  {
+{
     id: "静铁商旅prezio-沼津",
     displayName: "静铁商旅Prezio 沼津",
     decodedName: "静铁商旅Prezio 沼津",
@@ -324,7 +324,7 @@ export const verifiedGoogleMapLinks: VerifiedGoogleMapLink[] = [
     longitude: 138.8609338,
     parsedSource: "place_3d_4d",
   },
-  {
+{
     id: "沼津市立长井崎中学校",
     displayName: "沼津市立长井崎中学校",
     decodedName: "沼津市立长井崎中学校",
@@ -333,7 +333,7 @@ export const verifiedGoogleMapLinks: VerifiedGoogleMapLink[] = [
     longitude: 138.8833699,
     parsedSource: "place_3d_4d",
   },
-  {
+{
     id: "neopasa-surugawan-numazu-westbound",
     displayName: "NEOPASA Surugawan Numazu Westbound",
     decodedName: "NEOPASA Surugawan Numazu Westbound",
@@ -342,7 +342,7 @@ export const verifiedGoogleMapLinks: VerifiedGoogleMapLink[] = [
     longitude: 138.8115811,
     parsedSource: "place_3d_4d",
   },
-  {
+{
     id: "meijichakan",
     displayName: "Meijichakan",
     decodedName: "Meijichakan",
@@ -351,7 +351,7 @@ export const verifiedGoogleMapLinks: VerifiedGoogleMapLink[] = [
     longitude: 138.8571777,
     parsedSource: "place_3d_4d",
   },
-  {
+{
     id: "takedamaru",
     displayName: "TAKEDAMARU",
     decodedName: "TAKEDAMARU",
@@ -360,7 +360,7 @@ export const verifiedGoogleMapLinks: VerifiedGoogleMapLink[] = [
     longitude: 138.8586658,
     parsedSource: "place_3d_4d",
   },
-  {
+{
     id: "lalaport-numazu",
     displayName: "LaLaport Numazu",
     decodedName: "LaLaport Numazu",
@@ -369,7 +369,7 @@ export const verifiedGoogleMapLinks: VerifiedGoogleMapLink[] = [
     longitude: 138.8402585,
     parsedSource: "place_3d_4d",
   },
-  {
+{
     id: "grandma-agetsuchi-main-store",
     displayName: "Grandma Agetsuchi Main Store",
     decodedName: "Grandma Agetsuchi Main Store",
@@ -378,7 +378,7 @@ export const verifiedGoogleMapLinks: VerifiedGoogleMapLink[] = [
     longitude: 138.8580862,
     parsedSource: "place_3d_4d",
   },
-  {
+{
     id: "kimuraya",
     displayName: "KIMURAYA",
     decodedName: "KIMURAYA",
@@ -387,7 +387,7 @@ export const verifiedGoogleMapLinks: VerifiedGoogleMapLink[] = [
     longitude: 138.8582655,
     parsedSource: "place_3d_4d",
   },
-  {
+{
     id: "koko-hotel-numazu-ekimae",
     displayName: "KOKO HOTEL NUMAZU EKIMAE",
     decodedName: "KOKO HOTEL NUMAZU EKIMAE",
@@ -396,7 +396,7 @@ export const verifiedGoogleMapLinks: VerifiedGoogleMapLink[] = [
     longitude: 138.8597472,
     parsedSource: "place_3d_4d",
   },
-  {
+{
     id: "爱鹰广域公园多目的竞技场",
     displayName: "爱鹰广域公园多目的竞技场",
     decodedName: "爱鹰广域公园多目的竞技场",
@@ -405,7 +405,7 @@ export const verifiedGoogleMapLinks: VerifiedGoogleMapLink[] = [
     longitude: 138.8536669,
     parsedSource: "place_3d_4d",
   },
-  {
+{
     id: "ashitakacha-no-marunichagyou",
     displayName: "ASHITAKACHA NO MARUNICHAGYOU",
     decodedName: "ASHITAKACHA NO MARUNICHAGYOU",
@@ -414,7 +414,7 @@ export const verifiedGoogleMapLinks: VerifiedGoogleMapLink[] = [
     longitude: 138.8574197,
     parsedSource: "place_3d_4d",
   },
-  {
+{
     id: "numazu-port-observatory-water-gate",
     displayName: "Numazu Port Observatory Water Gate",
     decodedName: "Numazu Port Observatory Water Gate",
@@ -423,7 +423,7 @@ export const verifiedGoogleMapLinks: VerifiedGoogleMapLink[] = [
     longitude: 138.8544986,
     parsedSource: "place_3d_4d",
   },
-  {
+{
     id: "伊豆长冈",
     displayName: "伊豆长冈",
     decodedName: "伊豆长冈",
@@ -432,7 +432,7 @@ export const verifiedGoogleMapLinks: VerifiedGoogleMapLink[] = [
     longitude: 138.9473959,
     parsedSource: "place_3d_4d",
   },
-  {
+{
     id: "千本浜",
     displayName: "千本浜",
     decodedName: "千本浜",
@@ -441,7 +441,7 @@ export const verifiedGoogleMapLinks: VerifiedGoogleMapLink[] = [
     longitude: 138.8483303,
     parsedSource: "place_3d_4d",
   },
-  {
+{
     id: "takazawa-park",
     displayName: "Takazawa Park",
     decodedName: "Takazawa Park",
@@ -450,7 +450,7 @@ export const verifiedGoogleMapLinks: VerifiedGoogleMapLink[] = [
     longitude: 138.8553411,
     parsedSource: "place_3d_4d",
   },
-  {
+{
     id: "和風食堂-弥次喜多-平町店",
     displayName: "和風食堂 弥次喜多 平町店",
     decodedName: "和風食堂 弥次喜多 平町店",
@@ -459,7 +459,7 @@ export const verifiedGoogleMapLinks: VerifiedGoogleMapLink[] = [
     longitude: 138.8685882,
     parsedSource: "place_3d_4d",
   },
-  {
+{
     id: "bivi-numazu",
     displayName: "BiVi Numazu",
     decodedName: "BiVi Numazu",
@@ -468,7 +468,7 @@ export const verifiedGoogleMapLinks: VerifiedGoogleMapLink[] = [
     longitude: 138.8610155,
     parsedSource: "place_3d_4d",
   },
-  {
+{
     id: "numazu-hie-shrine",
     displayName: "Numazu Hie Shrine",
     decodedName: "Numazu Hie Shrine",
@@ -477,8 +477,8 @@ export const verifiedGoogleMapLinks: VerifiedGoogleMapLink[] = [
     longitude: 138.8688568,
     parsedSource: "place_3d_4d",
   },
-  {
-    id: "呑み処ふじ",
+{
+    id: "呑み処ふじ",
     displayName: "呑み処ふじ",
     decodedName: "呑み処ふじ",
     url: "https://www.google.com/maps/place/%E5%91%91%E3%81%BF%E5%87%A6%E3%81%B5%E3%81%98/@35.0849187,138.860138,16z/data=!4m10!1m3!11m2!2sX9lQrBc1IDecFniLM1jBfUrSlDUgTA!3e3!3m5!1s0x60198fd277a5f147:0x6102493cf462d972!8m2!3d35.0849187!4d138.8691502!16s%2Fg%2F11vbdslkwt?entry=ttu&g_ep=EgoyMDI2MDYwMy4xIKXMDSoASAFQAw%3D%3D",
@@ -486,7 +486,7 @@ export const verifiedGoogleMapLinks: VerifiedGoogleMapLink[] = [
     longitude: 138.8691502,
     parsedSource: "place_3d_4d",
   },
-  {
+{
     id: "maruka-orange-center",
     displayName: "Maruka Orange Center",
     decodedName: "Maruka Orange Center",
@@ -495,7 +495,7 @@ export const verifiedGoogleMapLinks: VerifiedGoogleMapLink[] = [
     longitude: 138.8869768,
     parsedSource: "place_3d_4d",
   },
-  {
+{
     id: "super-hotel-jr-fuji-ekimae-kinenkan",
     displayName: "Super Hotel JR Fuji Ekimae Kinenkan",
     decodedName: "Super Hotel JR Fuji Ekimae Kinenkan",
@@ -504,7 +504,7 @@ export const verifiedGoogleMapLinks: VerifiedGoogleMapLink[] = [
     longitude: 138.6517464,
     parsedSource: "place_3d_4d",
   },
-  {
+{
     id: "辻宗商店",
     displayName: "辻宗商店",
     decodedName: "辻宗商店",
@@ -513,7 +513,7 @@ export const verifiedGoogleMapLinks: VerifiedGoogleMapLink[] = [
     longitude: 138.8984327,
     parsedSource: "place_3d_4d",
   },
-  {
+{
     id: "daiwa-roynet-hotel-numazu",
     displayName: "Daiwa Roynet Hotel Numazu",
     decodedName: "Daiwa Roynet Hotel Numazu",
@@ -522,7 +522,7 @@ export const verifiedGoogleMapLinks: VerifiedGoogleMapLink[] = [
     longitude: 138.86158,
     parsedSource: "place_3d_4d",
   },
-  {
+{
     id: "love-live-sunshine-and-yohane-the-parhelion-premium-shop",
     displayName: "Love Live! Sunshine!! & Yohane the Parhelion Premium Shop",
     decodedName: "Love Live! Sunshine!! & Yohane the Parhelion Premium Shop",
@@ -531,7 +531,7 @@ export const verifiedGoogleMapLinks: VerifiedGoogleMapLink[] = [
     longitude: 138.8609138,
     parsedSource: "place_3d_4d",
   },
-  {
+{
     id: "港八十三番地",
     displayName: "港八十三番地",
     decodedName: "港八十三番地",
@@ -540,7 +540,7 @@ export const verifiedGoogleMapLinks: VerifiedGoogleMapLink[] = [
     longitude: 138.8579701,
     parsedSource: "place_3d_4d",
   },
-  {
+{
     id: "karukuru-numazuten",
     displayName: "Karukuru numazuten",
     decodedName: "Karukuru numazuten",
@@ -549,7 +549,7 @@ export const verifiedGoogleMapLinks: VerifiedGoogleMapLink[] = [
     longitude: 138.858696,
     parsedSource: "place_3d_4d",
   },
-  {
+{
     id: "gamers-numazu-store",
     displayName: "Gamers Numazu store",
     decodedName: "Gamers Numazu store",
@@ -558,7 +558,7 @@ export const verifiedGoogleMapLinks: VerifiedGoogleMapLink[] = [
     longitude: 138.8568484,
     parsedSource: "place_3d_4d",
   },
-  {
+{
     id: "doll-house-kimura",
     displayName: "Doll House Kimura",
     decodedName: "Doll House Kimura",
@@ -567,7 +567,7 @@ export const verifiedGoogleMapLinks: VerifiedGoogleMapLink[] = [
     longitude: 138.8575233,
     parsedSource: "place_3d_4d",
   },
-  {
+{
     id: "awashima-hotel",
     displayName: "Awashima Hotel",
     decodedName: "Awashima Hotel",
@@ -576,7 +576,7 @@ export const verifiedGoogleMapLinks: VerifiedGoogleMapLink[] = [
     longitude: 138.8868255,
     parsedSource: "place_3d_4d",
   },
-  {
+{
     id: "淡岛神社",
     displayName: "淡岛神社",
     decodedName: "淡岛神社",
@@ -585,7 +585,7 @@ export const verifiedGoogleMapLinks: VerifiedGoogleMapLink[] = [
     longitude: 138.8876469,
     parsedSource: "place_3d_4d",
   },
-  {
+{
     id: "tsuji-photography",
     displayName: "Tsuji Photography",
     decodedName: "Tsuji Photography",
@@ -594,7 +594,7 @@ export const verifiedGoogleMapLinks: VerifiedGoogleMapLink[] = [
     longitude: 138.857443,
     parsedSource: "place_3d_4d",
   },
-  {
+{
     id: "oh-mos",
     displayName: "OH!MOS",
     decodedName: "OH!MOS",
@@ -603,7 +603,7 @@ export const verifiedGoogleMapLinks: VerifiedGoogleMapLink[] = [
     longitude: 138.8882402,
     parsedSource: "place_3d_4d",
   },
-  {
+{
     id: "海鮮料理とさわや",
     displayName: "海鮮料理とさわや",
     decodedName: "海鮮料理とさわや",
@@ -612,7 +612,7 @@ export const verifiedGoogleMapLinks: VerifiedGoogleMapLink[] = [
     longitude: 138.8984251,
     parsedSource: "place_3d_4d",
   },
-  {
+{
     id: "dhaba-shimokanuki",
     displayName: "Dhaba Shimokanuki",
     decodedName: "Dhaba Shimokanuki",
@@ -621,7 +621,7 @@ export const verifiedGoogleMapLinks: VerifiedGoogleMapLink[] = [
     longitude: 138.8726994,
     parsedSource: "place_3d_4d",
   },
-  {
+{
     id: "frog-house",
     displayName: "Frog House",
     decodedName: "Frog House",
@@ -630,7 +630,7 @@ export const verifiedGoogleMapLinks: VerifiedGoogleMapLink[] = [
     longitude: 138.8901839,
     parsedSource: "place_3d_4d",
   },
-  {
+{
     id: "松月",
     displayName: "松月",
     decodedName: "松月",
@@ -639,7 +639,7 @@ export const verifiedGoogleMapLinks: VerifiedGoogleMapLink[] = [
     longitude: 138.8980626,
     parsedSource: "place_3d_4d",
   },
-  {
+{
     id: "matsuura-liquor-store",
     displayName: "Matsuura Liquor Store",
     decodedName: "Matsuura Liquor Store",
@@ -648,7 +648,7 @@ export const verifiedGoogleMapLinks: VerifiedGoogleMapLink[] = [
     longitude: 138.8591075,
     parsedSource: "place_3d_4d",
   },
-  {
+{
     id: "central-park",
     displayName: "Central Park",
     decodedName: "Central Park",
@@ -657,7 +657,7 @@ export const verifiedGoogleMapLinks: VerifiedGoogleMapLink[] = [
     longitude: 138.8596195,
     parsedSource: "place_3d_4d",
   },
-  {
+{
     id: "上土朝日稲荷神社",
     displayName: "上土朝日稲荷神社",
     decodedName: "上土朝日稲荷神社",
@@ -666,7 +666,7 @@ export const verifiedGoogleMapLinks: VerifiedGoogleMapLink[] = [
     longitude: 138.8585491,
     parsedSource: "place_3d_4d",
   },
-  {
+{
     id: "三之浦综合案内所",
     displayName: "三之浦综合案内所",
     decodedName: "三之浦综合案内所",
@@ -675,7 +675,7 @@ export const verifiedGoogleMapLinks: VerifiedGoogleMapLink[] = [
     longitude: 138.893332,
     parsedSource: "place_3d_4d",
   },
-  {
+{
     id: "rivage",
     displayName: "RIVAGE",
     decodedName: "RIVAGE",
@@ -684,7 +684,7 @@ export const verifiedGoogleMapLinks: VerifiedGoogleMapLink[] = [
     longitude: 138.8707538,
     parsedSource: "place_3d_4d",
   },
-  {
+{
     id: "沼津観光案内所",
     displayName: "沼津観光案内所",
     decodedName: "沼津観光案内所",
@@ -693,7 +693,7 @@ export const verifiedGoogleMapLinks: VerifiedGoogleMapLink[] = [
     longitude: 138.8594604,
     parsedSource: "place_3d_4d",
   },
-  {
+{
     id: "izu-mito-sea-paradise",
     displayName: "Izu Mito Sea Paradise",
     decodedName: "Izu Mito Sea Paradise",
@@ -702,7 +702,7 @@ export const verifiedGoogleMapLinks: VerifiedGoogleMapLink[] = [
     longitude: 138.8960105,
     parsedSource: "place_3d_4d",
   },
-  {
+{
     id: "numazu-riverside-hotel",
     displayName: "Numazu Riverside Hotel",
     decodedName: "Numazu Riverside Hotel",
@@ -711,7 +711,7 @@ export const verifiedGoogleMapLinks: VerifiedGoogleMapLink[] = [
     longitude: 138.8584654,
     parsedSource: "place_3d_4d",
   },
-  {
+{
     id: "kakita-river-park",
     displayName: "Kakita River Park",
     decodedName: "Kakita River Park",
@@ -720,7 +720,7 @@ export const verifiedGoogleMapLinks: VerifiedGoogleMapLink[] = [
     longitude: 138.901711,
     parsedSource: "place_3d_4d",
   },
-  {
+{
     id: "numazu-nakamise-shopping-street",
     displayName: "Numazu Nakamise Shopping Street",
     decodedName: "Numazu Nakamise Shopping Street",
@@ -729,7 +729,7 @@ export const verifiedGoogleMapLinks: VerifiedGoogleMapLink[] = [
     longitude: 138.8583002,
     parsedSource: "place_3d_4d",
   },
-  {
+{
     id: "numazu-deep-sea-aquarium",
     displayName: "Numazu Deep Sea Aquarium",
     decodedName: "Numazu Deep Sea Aquarium",
@@ -738,7 +738,7 @@ export const verifiedGoogleMapLinks: VerifiedGoogleMapLink[] = [
     longitude: 138.8581967,
     parsedSource: "place_3d_4d",
   },
-  {
+{
     id: "欧兰陀馆-下河原店",
     displayName: "欧兰陀馆 下河原店",
     decodedName: "欧兰陀馆 下河原店",
@@ -747,7 +747,7 @@ export const verifiedGoogleMapLinks: VerifiedGoogleMapLink[] = [
     longitude: 138.8580691,
     parsedSource: "place_3d_4d",
   },
-  {
+{
     id: "the-bluewater",
     displayName: "THE BLUEWATER",
     decodedName: "THE BLUEWATER",
@@ -756,7 +756,7 @@ export const verifiedGoogleMapLinks: VerifiedGoogleMapLink[] = [
     longitude: 138.8578319,
     parsedSource: "place_3d_4d",
   },
-  {
+{
     id: "安田屋旅馆",
     displayName: "安田屋旅馆",
     decodedName: "安田屋旅馆",
@@ -765,7 +765,7 @@ export const verifiedGoogleMapLinks: VerifiedGoogleMapLink[] = [
     longitude: 138.897573,
     parsedSource: "place_3d_4d",
   },
-  {
+{
     id: "numazu-imperial-villa-memorial-park",
     displayName: "Numazu Imperial Villa Memorial Park",
     decodedName: "Numazu Imperial Villa Memorial Park",
@@ -774,7 +774,7 @@ export const verifiedGoogleMapLinks: VerifiedGoogleMapLink[] = [
     longitude: 138.8715424,
     parsedSource: "place_3d_4d",
   },
-  {
+{
     id: "沼津寇寇奇酒店",
     displayName: "沼津寇寇奇酒店",
     decodedName: "沼津寇寇奇酒店",
@@ -783,7 +783,7 @@ export const verifiedGoogleMapLinks: VerifiedGoogleMapLink[] = [
     longitude: 138.8591523,
     parsedSource: "place_3d_4d",
   },
-  {
+{
     id: "kuretakein-puremiamu-numazukitaguchi-ekimae",
     displayName: "Kuretakein Puremiamu Numazukitaguchi Ekimae",
     decodedName: "Kuretakein Puremiamu Numazukitaguchi Ekimae",
@@ -792,7 +792,7 @@ export const verifiedGoogleMapLinks: VerifiedGoogleMapLink[] = [
     longitude: 138.8592582,
     parsedSource: "place_3d_4d",
   },
-  {
+{
     id: "sanco-inn-numazu-ekimae-2",
     displayName: "Sanco Inn Numazu Ekimae",
     decodedName: "Sanco Inn Numazu Ekimae",
@@ -801,7 +801,7 @@ export const verifiedGoogleMapLinks: VerifiedGoogleMapLink[] = [
     longitude: 138.858776,
     parsedSource: "place_3d_4d",
   },
-  {
+{
     id: "livemax-numazu-ekimae-hotel",
     displayName: "LiVEMax Numazu Ekimae Hotel",
     decodedName: "LiVEMax Numazu Ekimae Hotel",
@@ -810,13 +810,49 @@ export const verifiedGoogleMapLinks: VerifiedGoogleMapLink[] = [
     longitude: 138.8619775,
     parsedSource: "place_3d_4d",
   },
-  {
+{
     id: "toyoko-inn-fujisan-numazu-eki-kita-guchi-no-2",
     displayName: "Toyoko Inn Fujisan Numazu-eki Kita-guchi No.2",
     decodedName: "Toyoko Inn Fujisan Numazu-eki Kita-guchi No.2",
     url: "https://www.google.com/maps/place/Toyoko+Inn+Fujisan+Numazu-eki+Kita-guchi+No.2/@35.105239,138.8604349,18.75z/data=!4m9!3m8!1s0x6019856789c43d73:0xb0d9dda542ad41b3!5m2!4m1!1i2!8m2!3d35.1056347!4d138.8597615!16s%2Fg%2F1tcvzgrp?entry=ttu&g_ep=EgoyMDI2MDYwMS4wIKXMDSoASAFQAw%3D%3D",
     latitude: 35.1056347,
     longitude: 138.8597615,
+    parsedSource: "place_3d_4d",
+  },
+{
+    id: "yaba-coffee-numazu",
+    displayName: "Yaba Coffee Numazu",
+    decodedName: "Yaba Coffee Numazu",
+    url: "https://www.google.com/maps/place/Yaba+Coffee+Numazu/@35.1008583,138.8590187,18.75z/data=!3m1!5s0x60198560c44d4cc7:0x81abaac0aabd22c6!4m6!3m5!1s0x60198560c44d021b:0x865b6b49b3a64e54!8m2!3d35.1011236!4d138.8582053!16s%2Fg%2F12qg6pq40?entry=ttu&g_ep=EgoyMDI2MDYwMy4xIKXMDSoASAFQAw%3D%3D",
+    latitude: 35.1011236,
+    longitude: 138.8582053,
+    parsedSource: "place_3d_4d",
+  },
+{
+    id: "華味-ファーウェイ",
+    displayName: "華味（ファーウェイ）",
+    decodedName: "華味（ファーウェイ）",
+    url: "https://www.google.com/maps/place/%E8%8F%AF%E5%91%B3%EF%BC%88%E3%83%95%E3%82%A1%E3%83%BC%E3%82%A6%E3%82%A7%E3%82%A4%EF%BC%89/@35.1001541,138.8593885,19z/data=!4m6!3m5!1s0x6019859cfed4111d:0xf4e04cceca504616!8m2!3d35.1000665!4d138.8583123!16s%2Fg%2F11j0tr6d_p?entry=ttu&g_ep=EgoyMDI2MDYwMy4xIKXMDSoASAFQAw%3D%3D",
+    latitude: 35.1000665,
+    longitude: 138.8583123,
+    parsedSource: "place_3d_4d",
+  },
+{
+    id: "shirooka-shrine",
+    displayName: "Shirooka Shrine",
+    decodedName: "Shirooka Shrine",
+    url: "https://www.google.com/maps/place/Shirooka+Shrine/@35.100379,138.8595964,19z/data=!4m6!3m5!1s0x601985609cae32e5:0xc16af2147863aa9e!8m2!3d35.1006946!4d138.8595741!16s%2Fg%2F1tr7jfgr?entry=ttu&g_ep=EgoyMDI2MDYwMy4xIKXMDSoASAFQAw%3D%3D",
+    latitude: 35.1006946,
+    longitude: 138.8595741,
+    parsedSource: "place_3d_4d",
+  },
+{
+    id: "uchiura-gyokyou-ikesuya",
+    displayName: "Uchiura Gyokyou IKESUYA",
+    decodedName: "Uchiura Gyokyou IKESUYA",
+    url: "https://www.google.com/maps/place/Uchiura+Gyokyou+IKESUYA/@35.0264315,138.8947611,15.25z/data=!4m15!1m8!3m7!1s0x60199215184c06c3:0xea412a41a77816d4!2sUchiura+Gyokyou+IKESUYA!8m2!3d35.0265225!4d138.8962124!10e9!16s%2Fg%2F11b807llcp!3m5!1s0x60199215184c06c3:0xea412a41a77816d4!8m2!3d35.0265225!4d138.8962124!16s%2Fg%2F11b807llcp?entry=ttu&g_ep=EgoyMDI2MDYwMy4xIKXMDSoASAFQAw%3D%3D",
+    latitude: 35.0265225,
+    longitude: 138.8962124,
     parsedSource: "place_3d_4d",
   }
 ];
