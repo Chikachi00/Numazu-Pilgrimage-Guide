@@ -2,7 +2,7 @@
   "name": "numazu-pilgrimage-guide",
   "private": true,
   "version": "0.1.0",
-  "description": "A lightweight Numazu pilgrimage guide for Love Live! Sunshine!! fans.",
+  "description": "A lightweight interactive Numazu pilgrimage map with verified Google Maps locations and local travel planning tools.",
   "type": "module",
   "scripts": {
     "dev": "vite",

@@ -854,5 +854,32 @@ export const verifiedGoogleMapLinks: VerifiedGoogleMapLink[] = [
     latitude: 35.0265225,
     longitude: 138.8962124,
     parsedSource: "place_3d_4d",
+  },
+{
+    id: "西伊豆スカイライン",
+    displayName: "西伊豆スカイライン",
+    decodedName: "西伊豆スカイライン",
+    url: "https://www.google.com/maps/place/%E8%A5%BF%E4%BC%8A%E8%B1%86%E3%82%B9%E3%82%AB%E3%82%A4%E3%83%A9%E3%82%A4%E3%83%B3/@34.9519771,138.8357213,13.75z/data=!4m6!3m5!1s0x6019f30051723d25:0x7dd4adb97fdd8270!8m2!3d34.9400772!4d138.8367722!16s%2Fg%2F11w1x5r15h?entry=ttu&g_ep=EgoyMDI2MDYwOS4wIKXMDSoASAFQAw%3D%3D",
+    latitude: 34.9400772,
+    longitude: 138.8367722,
+    parsedSource: "place_3d_4d",
+  },
+{
+    id: "mt-daruma-observatory",
+    displayName: "Mt. Daruma Observatory",
+    decodedName: "Mt. Daruma Observatory",
+    url: "https://www.google.com/maps/place/Mt.+Daruma+Observatory/@34.9633541,138.8461325,13.75z/data=!4m6!3m5!1s0x60198d0fe9497eab:0x6885718d5283364d!8m2!3d34.9758249!4d138.850766!16s%2Fg%2F11hbvcnpgn?entry=ttu&g_ep=EgoyMDI2MDYwOS4wIKXMDSoASAFQAw%3D%3D",
+    latitude: 34.9758249,
+    longitude: 138.850766,
+    parsedSource: "place_3d_4d",
+  },
+{
+    id: "河内の大スギ",
+    displayName: "河内の大スギ",
+    decodedName: "河内の大スギ",
+    url: "https://www.google.com/maps/place/%E6%B2%B3%E5%86%85%E3%81%AE%E5%A4%A7%E3%82%B9%E3%82%AE/@34.9665327,138.8510319,13.75z/data=!4m6!3m5!1s0x60198da6e6e5a8a3:0x2533aa502734b87f!8m2!3d34.9879546!4d138.8533863!16s%2Fg%2F11g8k4kccb?entry=ttu&g_ep=EgoyMDI2MDYwOS4wIKXMDSoASAFQAw%3D%3D",
+    latitude: 34.9879546,
+    longitude: 138.8533863,
+    parsedSource: "place_3d_4d",
   }
 ];

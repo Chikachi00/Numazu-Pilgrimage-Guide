@@ -2,9 +2,9 @@
 
 ## Summary
 
-* Total URLs in location.md: 94
-* Successfully parsed: 94
-* Current official spot count: 93
+* Total URLs in location.md: 97
+* Successfully parsed: 97
+* Current official spot count: 96
 * Remaining needs_review spots: 0
 * Parse errors: 0
 
@@ -15,15 +15,15 @@
 * shopping: 8
 * hotel: 10
 * transport: 0
-* scenic: 16
+* scenic: 19
 * auxiliary: 19
 * featured: 18
-* hiddenByDefault: 75
+* hiddenByDefault: 78
 
 ## Data Cleanup Summary
 
 * Source of truth: docs/reference/location.md
-* Kept spots: 93
+* Kept spots: 96
 * Removed unverified / legacy spots: 0
 * Remaining needs_review spots: 0
-* Current official spot count: 93
+* Current official spot count: 96
